@@ -1,0 +1,14 @@
+pandoc: 2.7.3
+pkgdown: 1.9000.9000.9000
+pkgdown_sha: 27c2be85d26c6d82b84b4f4077ab644276b0a9ad
+articles:
+  afrobarometer: afrobarometer.html
+  arabbarometer: arabbarometer.html
+  eurobarometer: eurobarometer.html
+  harmonize_labels: harmonize_labels.html
+  labelled_spss_survey: labelled_spss_survey.html
+last_built: 2021-11-02T10:26Z
+urls:
+  reference: https://ropengov.github.io/retroharmonize/reference
+  article: https://ropengov.github.io/retroharmonize/articles
+

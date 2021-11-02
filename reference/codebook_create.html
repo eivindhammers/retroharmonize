@@ -128,8 +128,23 @@ character types are not included, because they do not require coding.</p>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">examples_dir</span>, <span class="va">survey_list</span><span class="op">)</span>, </span>
 <span class="r-in">  save_to_rds <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>     </span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu">codebook_waves_create</span> <span class="op">(</span><span class="va">xample_surveys</span>, <span class="va">to_harmonize</span> <span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in codebook_waves_create(xample_surveys, to_harmonize):</span> unused argument (to_harmonize)</span>
+<span class="r-in"><span class="fu">codebook_waves_create</span> <span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,379 × 12</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    entry id     filename   var_name_orig label_orig val_code_orig val_label_orig</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     6 ZA5913 ZA5913.rds p1            date of i… 1             Tuesday 11th …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     6 ZA5913 ZA5913.rds p1            date of i… 10            Thursday 20th…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     6 ZA5913 ZA5913.rds p1            date of i… 11            Friday 21st M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     6 ZA5913 ZA5913.rds p1            date of i… 12            Saturday 22nd…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     6 ZA5913 ZA5913.rds p1            date of i… 13            Sunday 23rd M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     6 ZA5913 ZA5913.rds p1            date of i… 14            Monday 24th M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     6 ZA5913 ZA5913.rds p1            date of i… 2             Wednesday 12t…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     6 ZA5913 ZA5913.rds p1            date of i… 3             Thursday 13th…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     6 ZA5913 ZA5913.rds p1            date of i… 4             Friday 14th M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>     6 ZA5913 ZA5913.rds p1            date of i… 5             Saturday 15th…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1,369 more rows, and 5 more variables: label_range &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   na_range &lt;named list&gt;, n_labels &lt;dbl&gt;, n_valid_labels &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   n_na_labels &lt;dbl&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

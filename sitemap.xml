@@ -40,9 +40,6 @@
     <loc>https://ropengov.github.io/retroharmonize/reference/as_labelled_spss_survey.html</loc>
   </url>
   <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/codebook_create.html</loc>
-  </url>
-  <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/collect_val_labels.html</loc>
   </url>
   <url>
@@ -50,6 +47,9 @@
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/convert_to_labelled_spss.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/create_codebook.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/document_survey_item.html</loc>
@@ -83,9 +83,6 @@
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/merge_waves.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/metadat_create.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/metadata_create.html</loc>

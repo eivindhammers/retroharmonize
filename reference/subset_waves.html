@@ -11,7 +11,7 @@ are imported from an external file as a wave with with read_surveys."><meta prop
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -90,7 +90,7 @@ wave of surveys. Defaults to <code>NULL</code> in which case it returns all vari
 <span class="r-in"><span class="va">example_surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_surveys.html">read_surveys</a></span><span class="op">(</span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">examples_dir</span>, <span class="va">survey_list</span><span class="op">)</span>, </span>
 <span class="r-in">  save_to_rds <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="metadat_create.html">metadata_waves_create</a></span><span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="metadata_create.html">metadata_waves_create</a></span><span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">metadata</span><span class="op">$</span><span class="va">var_name_suggested</span> <span class="op">&lt;-</span> <span class="fu"><a href="label_normalize.html">label_normalize</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">$</span><span class="va">var_name</span><span class="op">)</span></span>
 <span class="r-in"></span>

@@ -39,7 +39,7 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -252,7 +252,7 @@
 <p>After performing harmonization, it would look like this:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">harmonize_eb_trust</span><span class="op">(</span>x<span class="op">=</span><span class="va">test_trust</span><span class="op">$</span><span class="va">trust_european_commission</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span><span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt; Warning in harmonize_values(x, harmonize_labels = label_list, na_values = c(do_not_know = 99997, : There are values exceeding 99990, these may be mising values.</span>
+<span class="co">#&gt; There are values exceeding 99990, these may be mising values.</span>
 <span class="co">#&gt;  [1] 99997     1     0 99997     1     0     0     0     1 99997     1     1</span>
 <span class="co">#&gt; [13]     1     1     1     1</span>
 <span class="co">#&gt; attr(,"labels")</span>

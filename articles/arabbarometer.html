@@ -39,7 +39,7 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -445,11 +445,11 @@
   waves <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> <span class="va">ab_elections</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
                      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span> <span class="op">(</span><span class="op">-</span><span class="va">.data</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span>, 
   .f <span class="op">=</span><span class="va">harmonize_arabb_eval</span> <span class="op">)</span>
-<span class="co">#&gt; Warning in harmonize_values(x, harmonize_labels = label_list, na_values = c(do_not_know = 99997, : There are values exceeding 99990, these may be mising values.</span>
-
-<span class="co">#&gt; Warning in harmonize_values(x, harmonize_labels = label_list, na_values = c(do_not_know = 99997, : There are values exceeding 99990, these may be mising values.</span>
-
-<span class="co">#&gt; Warning in harmonize_values(x, harmonize_labels = label_list, na_values = c(do_not_know = 99997, : There are values exceeding 99990, these may be mising values.</span></code></pre></div>
+<span class="co">#&gt; There are values exceeding 99990, these may be mising values.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; There are values exceeding 99990, these may be mising values.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; There are values exceeding 99990, these may be mising values.</span></code></pre></div>
 <p>There is a bit of a work with the country variable, too, but this variable has no missing cases, and instead of creating a labelling, we will convert them into factors after cleaning. We only show a few examples of the labelling issues:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">country_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/collect_val_labels.html">collect_val_labels</a></span> <span class="op">(</span><span class="va">to_harmonize_elections</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
@@ -715,8 +715,8 @@
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] snakecase_0.11.0      knitr_1.36            ggplot2_3.3.5        </span>
-<span class="co">#&gt; [4] tidyr_1.1.4           dplyr_1.0.7           retroharmonize_0.1.19</span>
+<span class="co">#&gt; [1] snakecase_0.11.0     knitr_1.36           ggplot2_3.3.5       </span>
+<span class="co">#&gt; [4] tidyr_1.1.4          dplyr_1.0.7          retroharmonize_0.2.0</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
 <span class="co">#&gt;  [1] tidyselect_1.1.1         xfun_0.27                bslib_0.3.1             </span>

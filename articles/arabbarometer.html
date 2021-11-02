@@ -444,12 +444,7 @@
 <code class="sourceCode R"><span class="va">harmonized_evaluations</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_waves.html">harmonize_waves</a></span><span class="op">(</span> 
   waves <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> <span class="va">ab_elections</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
                      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span> <span class="op">(</span><span class="op">-</span><span class="va">.data</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span>, 
-  .f <span class="op">=</span><span class="va">harmonize_arabb_eval</span> <span class="op">)</span>
-<span class="co">#&gt; There are values exceeding 99990, these may be mising values.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; There are values exceeding 99990, these may be mising values.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; There are values exceeding 99990, these may be mising values.</span></code></pre></div>
+  .f <span class="op">=</span><span class="va">harmonize_arabb_eval</span> <span class="op">)</span></code></pre></div>
 <p>There is a bit of a work with the country variable, too, but this variable has no missing cases, and instead of creating a labelling, we will convert them into factors after cleaning. We only show a few examples of the labelling issues:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">country_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/collect_val_labels.html">collect_val_labels</a></span> <span class="op">(</span><span class="va">to_harmonize_elections</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 

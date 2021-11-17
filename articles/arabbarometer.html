@@ -33,7 +33,7 @@
 <!-- rogtemplate style sheet --><link href="../BS5/rogtemplate.css" rel="stylesheet">
 </head>
 <body>
-    <a href="#container" class="visually-hidden-focusable">Skip to content</a>
+    <a href="#container" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
@@ -65,7 +65,7 @@
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Search" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search..." autocomplete="off">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
 </form>
 
       <ul class="navbar-nav">
@@ -82,12 +82,12 @@
 <script src="arabbarometer_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1 data-toc-skip>Case Study: Working With Arab Barometer Surveys</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Case Study: Working With Arab Barometer Surveys</h1>
                         <h4 data-toc-skip class="author">Daniel Antal</h4>
                         <h4 data-toc-skip class="author">Yousef Ibrahim</h4>
                         <h4 data-toc-skip class="author">Ahmed Shaibani</h4>
             
-            <h4 data-toc-skip class="date">2021-11-02</h4>
+            <h4 data-toc-skip class="date">2021-11-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/rOpenGov/retroharmonize/blob/HEAD/vignettes/arabbarometer.Rmd" class="external-link"><code>vignettes/arabbarometer.Rmd</code></a></small>
       <div class="d-none name"><code>arabbarometer.Rmd</code></div>
@@ -237,16 +237,16 @@
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html" class="external-link">sample_n</a></span><span class="op">(</span><span class="va">to_harmonize_elections</span><span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span> <span class="op">(</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html" class="external-link">all_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"var_name"</span>, <span class="st">"var_label"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="fl">10</span><span class="op">)</span>
 <span class="co">#&gt;                  id                                       var_name</span>
-<span class="co">#&gt; 1  Arab_Barometer_2                           unique id ab english</span>
+<span class="co">#&gt; 1  Arab_Barometer_2                           unique_id_ab_english</span>
 <span class="co">#&gt; 2  Arab_Barometer_1                                        country</span>
 <span class="co">#&gt; 3  Arab_Barometer_3                                         weight</span>
 <span class="co">#&gt; 4  Arab_Barometer_2                                         weight</span>
-<span class="co">#&gt; 5  Arab_Barometer_4 evaluation in the last parliamentary elections</span>
+<span class="co">#&gt; 5  Arab_Barometer_4 evaluation_in_the_last_parliamentary_elections</span>
 <span class="co">#&gt; 6  Arab_Barometer_3                                        country</span>
 <span class="co">#&gt; 7  Arab_Barometer_5                              date_of_interview</span>
 <span class="co">#&gt; 8  Arab_Barometer_4                                         weight</span>
 <span class="co">#&gt; 9  Arab_Barometer_4                                        country</span>
-<span class="co">#&gt; 10 Arab_Barometer_3                           unique id ab english</span>
+<span class="co">#&gt; 10 Arab_Barometer_3                           unique_id_ab_english</span>
 <span class="co">#&gt;                                          var_label</span>
 <span class="co">#&gt; 1                             Unique ID AB English</span>
 <span class="co">#&gt; 2                                          Country</span>
@@ -385,26 +385,7 @@
      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"evaluation in the last parliamentary elections"</span>, 
                   <span class="va">.data</span><span class="op">$</span><span class="va">var_name</span><span class="op">)</span><span class="op">)</span>
   <span class="op">)</span>
-<span class="co">#&gt;  [1] "0. missing"                                          </span>
-<span class="co">#&gt;  [2] "1. they were completely free and fair"               </span>
-<span class="co">#&gt;  [3] "2. they were free and fair, with some minor problems"</span>
-<span class="co">#&gt;  [4] "3. they were free and fair, with some major problems"</span>
-<span class="co">#&gt;  [5] "4. they were not free and fair"                      </span>
-<span class="co">#&gt;  [6] "8. i don't know"                                     </span>
-<span class="co">#&gt;  [7] "9. declined to answer"                               </span>
-<span class="co">#&gt;  [8] "Missing"                                             </span>
-<span class="co">#&gt;  [9] "They were completely free and fair"                  </span>
-<span class="co">#&gt; [10] "They were free and fair, with some minor breaches"   </span>
-<span class="co">#&gt; [11] "They were free and fair, with some major breaches"   </span>
-<span class="co">#&gt; [12] "They were not free and fair"                         </span>
-<span class="co">#&gt; [13] "Don't know"                                          </span>
-<span class="co">#&gt; [14] "Refuse"                                              </span>
-<span class="co">#&gt; [15] "Completely free and fair"                            </span>
-<span class="co">#&gt; [16] "Free and fair, but with minor problems"              </span>
-<span class="co">#&gt; [17] "Free and fair, with major problems"                  </span>
-<span class="co">#&gt; [18] "Not free or fair"                                    </span>
-<span class="co">#&gt; [19] "Don't know (Do not read)"                            </span>
-<span class="co">#&gt; [20] "Decline to answer (Do not read)"</span></code></pre></div>
+<span class="co">#&gt; character(0)</span></code></pre></div>
 <p>For example, <code>Refuse</code> and <code>Decline to answer (Do not read)</code> are categories when the interviewee refused to form an opinion. This is a different case from <code>Missing</code>: in Saudi Arabia, there were not parliamentary elections, therefore the question was not asked from interviewees in this country.</p>
 <p>The question of interest <code>How would you evaluate the last parliamentary election?</code> is described as a closed form survey questions where answers are predetermined and the respondents chose one of the answer options. This question has four-point ordinal scales, therefore, data is best to analyzed in an ordinal representation that does not assume equidistant values (i.e., as factors.)</p>
 <p>We created the following retrospective labelling and coding:</p>
@@ -712,12 +693,12 @@
 <span class="co">#&gt; [4] tidyr_1.1.4          dplyr_1.0.7          retroharmonize_0.2.0</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;  [1] tidyselect_1.1.1         xfun_0.27                bslib_0.3.1             </span>
+<span class="co">#&gt;  [1] tidyselect_1.1.1         xfun_0.28                bslib_0.3.1             </span>
 <span class="co">#&gt;  [4] purrr_0.3.4              haven_2.4.3              labelled_2.9.0          </span>
 <span class="co">#&gt;  [7] colorspace_2.0-2         vctrs_0.3.8              generics_0.1.1          </span>
 <span class="co">#&gt; [10] htmltools_0.5.2          yaml_2.2.1               utf8_1.2.2              </span>
 <span class="co">#&gt; [13] rlang_0.4.12             pkgdown_1.9000.9000.9000 jquerylib_0.1.4         </span>
-<span class="co">#&gt; [16] pillar_1.6.4             glue_1.4.2               withr_2.4.2             </span>
+<span class="co">#&gt; [16] pillar_1.6.4             glue_1.5.0               withr_2.4.2             </span>
 <span class="co">#&gt; [19] lifecycle_1.0.1          stringr_1.4.0            munsell_0.5.0           </span>
 <span class="co">#&gt; [22] gtable_0.3.0             ragg_1.2.0               memoise_2.0.0           </span>
 <span class="co">#&gt; [25] evaluate_0.14            forcats_0.5.1            fastmap_1.1.0           </span>
@@ -726,8 +707,8 @@
 <span class="co">#&gt; [34] systemfonts_1.0.3        fs_1.5.0                 textshaping_0.3.6       </span>
 <span class="co">#&gt; [37] hms_1.1.1                png_0.1-7                digest_0.6.28           </span>
 <span class="co">#&gt; [40] stringi_1.7.5            rprojroot_2.0.2          grid_4.1.2              </span>
-<span class="co">#&gt; [43] here_1.0.1               cli_3.1.0                tools_4.1.2             </span>
-<span class="co">#&gt; [46] magrittr_2.0.1           sass_0.4.0               tibble_3.1.5            </span>
+<span class="co">#&gt; [43] cli_3.1.0                here_1.0.1               tools_4.1.2             </span>
+<span class="co">#&gt; [46] magrittr_2.0.1           sass_0.4.0               tibble_3.1.6            </span>
 <span class="co">#&gt; [49] crayon_1.4.2             pkgconfig_2.0.3          ellipsis_0.3.2          </span>
 <span class="co">#&gt; [52] assertthat_0.2.1         rmarkdown_2.11           R6_2.5.1                </span>
 <span class="co">#&gt; [55] compiler_4.1.2</span></code></pre></div>
@@ -735,7 +716,7 @@
 </div>
   </div>
  <div class="col-md-3" id="pkgdown-sidebar">
-        <nav id="toc"><h2 data-toc-skip>Contents</h2>
+        <nav id="toc"><h2>On this page</h2>
     </nav>
 </div>
 

@@ -11,7 +11,7 @@ are imported from an external file as a wave."><meta property="og:image" content
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -62,7 +62,7 @@ are imported from an external file as a wave.</p>
     <div class="ref-usage section level2 sourceCode">
     <h2>Usage</h2>
     <pre class="sourceCode r"><code><span class="fu">harmonize_var_names</span><span class="op">(</span>
-  <span class="va">waves</span>,
+  <span class="va">survey_list</span>,
   <span class="va">metadata</span>,
   old <span class="op">=</span> <span class="st">"var_name_orig"</span>,
   new <span class="op">=</span> <span class="st">"var_name_suggested"</span>,
@@ -73,11 +73,11 @@ are imported from an external file as a wave.</p>
     <div id="ref-sections">
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>waves</dt>
-<dd><p>A list of surveys imported with <code><a href="read_surveys.html">read_surveys</a></code>.</p></dd>
+    <dl><dt>survey_list</dt>
+<dd><p>A list of surveys imported with <code><a href="read_surveys.html">read_surveys</a></code></p></dd>
 <dt>metadata</dt>
 <dd><p>A metadata table created by <code>metadata_create</code> and binded together for 
-all surveys in <code>waves</code>.</p></dd>
+all surveys in <code>survey_list</code>.</p></dd>
 <dt>old</dt>
 <dd><p>The column name in <code>metadata</code> that contains the old, not harmonized variable names.</p></dd>
 <dt>new</dt>
@@ -93,11 +93,12 @@ all surveys in <code>waves</code>.</p></dd>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>If the <code>metadata</code> that contains subsetting information is subsetted, then 
 it will subset the surveys in 
-<code>waves</code>.</p>
+<code>survey_list</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other harmonization functions: 
+    <div class="dont-index"><p>crosswalk</p>
+<p>Other harmonization functions: 
 <code><a href="collect_val_labels.html">collect_val_labels</a>()</code>,
 <code><a href="harmonize_na_values.html">harmonize_na_values</a>()</code>,
 <code><a href="harmonize_values.html">harmonize_values</a>()</code>,
@@ -115,15 +116,13 @@ it will subset the surveys in
 <span class="r-in"><span class="va">example_surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_surveys.html">read_surveys</a></span><span class="op">(</span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">examples_dir</span>, <span class="va">survey_list</span><span class="op">)</span>, </span>
 <span class="r-in">  save_to_rds <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> X <span class="op">=</span> <span class="va">example_surveys</span>, FUN <span class="op">=</span> <span class="va">metadata_create</span> <span class="op">)</span></span>
-<span class="r-in"><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">metadata</span><span class="op">)</span></span>
-<span class="r-in"></span>
+<span class="r-in">  </span>
+<span class="r-in"><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="metadata_create.html">metadata_surveys_create</a></span><span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">metadata</span><span class="op">$</span><span class="va">var_name_suggested</span> <span class="op">&lt;-</span> <span class="fu"><a href="label_normalize.html">label_normalize</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">$</span><span class="va">var_name</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">metadata</span><span class="op">$</span><span class="va">var_name_suggested</span><span class="op">[</span><span class="va">metadata</span><span class="op">$</span><span class="va">label_orig</span> <span class="op">==</span> <span class="st">"age_education"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"age_education"</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">metadata</span><span class="op">$</span><span class="va">var_name_suggested</span><span class="op">[</span><span class="va">metadata</span><span class="op">$</span><span class="va">label_orig</span> <span class="op">==</span> <span class="st">"age education"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"age_education"</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">harmonize_var_names</span><span class="op">(</span>waves <span class="op">=</span> <span class="va">example_surveys</span>, </span>
-<span class="r-in">                    metadata <span class="op">=</span> <span class="va">metadata</span> <span class="op">)</span></span>
+<span class="r-in"><span class="fu">harmonize_var_names</span><span class="op">(</span>survey_list <span class="op">=</span> <span class="va">example_surveys</span>, </span>
+<span class="r-in">                    metadata    <span class="op">=</span> <span class="va">metadata</span> <span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 35 × 38</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    rowid doi   version uniqid isocntry       p1    p3      p4      p5 nuts      </span>
@@ -138,13 +137,13 @@ it will subset the surveys in
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ZA59… doi:… 2.0.0 … 1.13<span style="color: #949494;">e</span>7 NL       10<span style="color: #949494;"> [Thu…</span>    44 1<span style="color: #949494;"> [Two…</span> 1<span style="color: #949494;"> [Exc…</span> NL13<span style="color: #949494;"> [Dre…</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ZA59… doi:… 2.0.0 … 1.13<span style="color: #949494;">e</span>7 NL        5<span style="color: #949494;"> [Sat…</span>    19 1<span style="color: #949494;"> [Two…</span> 2<span style="color: #949494;"> [Fai…</span> NL34<span style="color: #949494;"> [Zee…</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ZA59… doi:… 2.0.0 … 1.13<span style="color: #949494;">e</span>7 NL       14<span style="color: #949494;"> [Mon…</span>    22 1<span style="color: #949494;"> [Two…</span> 1<span style="color: #949494;"> [Exc…</span> NL22<span style="color: #949494;"> [Gel…</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 25 more rows, and 28 more variables: d7 &lt;dbl+lbl&gt;, d8 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   d25 &lt;dbl+lbl&gt;, d60 &lt;dbl+lbl&gt;, qa10_3 &lt;dbl+lbl&gt;, qa10_2 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa10_1 &lt;dbl+lbl&gt;, qa7_4 &lt;dbl+lbl&gt;, qa7_2 &lt;dbl+lbl&gt;, qa7_3 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa7_1 &lt;dbl+lbl&gt;, qa7_5 &lt;dbl+lbl&gt;, qd3_1 &lt;dbl+lbl&gt;, qd3_2 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qd3_3 &lt;dbl+lbl&gt;, qd3_4 &lt;dbl+lbl&gt;, qd3_5 &lt;dbl+lbl&gt;, qd3_6 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qd3_7 &lt;dbl+lbl&gt;, qd3_8 &lt;dbl+lbl&gt;, qd3_9 &lt;dbl+lbl&gt;, qd3_10 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qd3_11 &lt;dbl+lbl&gt;, qd3_12 &lt;dbl+lbl&gt;, qd3_13 &lt;dbl+lbl&gt;, qd3_14 &lt;dbl+lbl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 25 more rows, and 28 more variables: d7 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   age_education &lt;dbl+lbl&gt;, d25 &lt;dbl+lbl&gt;, d60 &lt;dbl+lbl&gt;, qa10_3 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa10_2 &lt;dbl+lbl&gt;, qa10_1 &lt;dbl+lbl&gt;, qa7_4 &lt;dbl+lbl&gt;, qa7_2 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa7_3 &lt;dbl+lbl&gt;, qa7_1 &lt;dbl+lbl&gt;, qa7_5 &lt;dbl+lbl&gt;, qd3_1 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qd3_2 &lt;dbl+lbl&gt;, qd3_3 &lt;dbl+lbl&gt;, qd3_4 &lt;dbl+lbl&gt;, qd3_5 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qd3_6 &lt;dbl+lbl&gt;, qd3_7 &lt;dbl+lbl&gt;, qd3_8 &lt;dbl+lbl&gt;, qd3_9 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qd3_10 &lt;dbl+lbl&gt;, qd3_11 &lt;dbl+lbl&gt;, qd3_12 &lt;dbl+lbl&gt;, qd3_13 &lt;dbl+lbl&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 50 × 49</span></span>
@@ -161,12 +160,12 @@ it will subset the surveys in
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ZA686… doi:1… 1.0.0 (… 1.10<span style="color: #949494;">e</span>8     <span style="text-decoration: underline;">9</span>570 NL       6<span style="color: #949494;"> [Thu…</span> 4<span style="color: #949494;"> [17 …</span>    39 1<span style="color: #949494;"> [Two…</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ZA686… doi:1… 1.0.0 (… 1.10<span style="color: #949494;">e</span>8     <span style="text-decoration: underline;">9</span>674 NL       7<span style="color: #949494;"> [Fri…</span> 3<span style="color: #949494;"> [13 …</span>    41 1<span style="color: #949494;"> [Two…</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 40 more rows, and 39 more variables: p5 &lt;dbl+lbl&gt;, nuts &lt;chr+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   d7 &lt;dbl+lbl&gt;, d8 &lt;dbl+lbl&gt;, d25 &lt;dbl+lbl&gt;, d60 &lt;dbl+lbl&gt;, qa14_3 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa14_2 &lt;dbl+lbl&gt;, qa14_1 &lt;dbl+lbl&gt;, qa8a_3 &lt;dbl+lbl&gt;, qa8a_9 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa8b_2 &lt;dbl+lbl&gt;, qa8a_1 &lt;dbl+lbl&gt;, qa8a_7 &lt;dbl+lbl&gt;, qa8a_8 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa8a_2 &lt;dbl+lbl&gt;, qa8a_5 &lt;dbl+lbl&gt;, qa8b_1 &lt;dbl+lbl&gt;, qa8a_4 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa8a_6 &lt;dbl+lbl&gt;, qa8a_10 &lt;dbl+lbl&gt;, qa8b_3 &lt;dbl+lbl&gt;, qd7 1 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qd7 2 &lt;dbl+lbl&gt;, qd7 3 &lt;dbl+lbl&gt;, qd7 4 &lt;dbl+lbl&gt;, qd7 5 &lt;dbl+lbl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   d7 &lt;dbl+lbl&gt;, age_education &lt;dbl+lbl&gt;, d25 &lt;dbl+lbl&gt;, d60 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa14_3 &lt;dbl+lbl&gt;, qa14_2 &lt;dbl+lbl&gt;, qa14_1 &lt;dbl+lbl&gt;, qa8a_3 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa8a_9 &lt;dbl+lbl&gt;, qa8b_2 &lt;dbl+lbl&gt;, qa8a_1 &lt;dbl+lbl&gt;, qa8a_7 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa8a_8 &lt;dbl+lbl&gt;, qa8a_2 &lt;dbl+lbl&gt;, qa8a_5 &lt;dbl+lbl&gt;, qa8b_1 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa8a_4 &lt;dbl+lbl&gt;, qa8a_6 &lt;dbl+lbl&gt;, qa8a_10 &lt;dbl+lbl&gt;, qa8b_3 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qd7 1 &lt;dbl+lbl&gt;, qd7 2 &lt;dbl+lbl&gt;, qd7 3 &lt;dbl+lbl&gt;, qd7 4 &lt;dbl+lbl&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 45 × 56</span></span>
@@ -183,12 +182,12 @@ it will subset the surveys in
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ZA757… doi:1… 1.0.0 … 1.10<span style="color: #949494;">e</span>8   <span style="text-decoration: underline;">1</span>274     <span style="text-decoration: underline;">9</span>543 NL        7<span style="color: #949494;"> [Thur…</span> 4<span style="color: #949494;"> [17 …</span>    57</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ZA757… doi:1… 1.0.0 … 1.10<span style="color: #949494;">e</span>8   <span style="text-decoration: underline;">1</span>344     <span style="text-decoration: underline;">9</span>590 NL        6<span style="color: #949494;"> [Wedn…</span> 2<span style="color: #949494;"> [8 -…</span>    83</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more rows, and 46 more variables: p4 &lt;dbl+lbl&gt;, p5 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nuts &lt;chr+lbl&gt;, d7 &lt;dbl+lbl&gt;, d8 &lt;dbl+lbl&gt;, d25 &lt;dbl+lbl&gt;, d60 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa14_5 &lt;dbl+lbl&gt;, qa14_3 &lt;dbl+lbl&gt;, qa14_2 &lt;dbl+lbl&gt;, qa14_4 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa14_1 &lt;dbl+lbl&gt;, qa6a_5 &lt;dbl+lbl&gt;, qa6a_10 &lt;dbl+lbl&gt;, qa6b_2 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa6a_3 &lt;dbl+lbl&gt;, qa6a_1 &lt;dbl+lbl&gt;, qa6b_4 &lt;dbl+lbl&gt;, qa6a_8 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa6a_9 &lt;dbl+lbl&gt;, qa6a_4 &lt;dbl+lbl&gt;, qa6a_2 &lt;dbl+lbl&gt;, qa6b_1 &lt;dbl+lbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa6a_6 &lt;dbl+lbl&gt;, qa6a_7 &lt;dbl+lbl&gt;, qa6a_11 &lt;dbl+lbl&gt;, qa6b_3 &lt;dbl+lbl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nuts &lt;chr+lbl&gt;, d7 &lt;dbl+lbl&gt;, age_education &lt;dbl+lbl&gt;, d25 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   d60 &lt;dbl+lbl&gt;, qa14_5 &lt;dbl+lbl&gt;, qa14_3 &lt;dbl+lbl&gt;, qa14_2 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa14_4 &lt;dbl+lbl&gt;, qa14_1 &lt;dbl+lbl&gt;, qa6a_5 &lt;dbl+lbl&gt;, qa6a_10 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa6b_2 &lt;dbl+lbl&gt;, qa6a_3 &lt;dbl+lbl&gt;, qa6a_1 &lt;dbl+lbl&gt;, qa6b_4 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa6a_8 &lt;dbl+lbl&gt;, qa6a_9 &lt;dbl+lbl&gt;, qa6a_4 &lt;dbl+lbl&gt;, qa6a_2 &lt;dbl+lbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   qa6b_1 &lt;dbl+lbl&gt;, qa6a_6 &lt;dbl+lbl&gt;, qa6a_7 &lt;dbl+lbl&gt;, qa6a_11 &lt;dbl+lbl&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>

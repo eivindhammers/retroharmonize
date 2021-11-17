@@ -39,7 +39,7 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -119,9 +119,9 @@ Round 7: <code>r7_merged_data_34ctry.release.sav</code></p>
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">ab_waves</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="st">"id"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Afrobarometer_R5"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">ab_waves</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="st">"id"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Afrobarometer_R6"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">ab_waves</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span>, <span class="st">"id"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Afrobarometer_R7"</span></code></pre></div>
-<p>We can review if the main descriptive metadata is correctly present with <code><a href="../reference/document_waves.html">document_waves()</a></code>.</p>
+<p>We can review if the main descriptive metadata is correctly present with <code><a href="../reference/document_surveys.html">document_surveys()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">documented_ab_waves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/document_waves.html">document_waves</a></span><span class="op">(</span><span class="va">ab_waves</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">documented_ab_waves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/document_surveys.html">document_surveys</a></span><span class="op">(</span><span class="va">ab_waves</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">documented_ab_waves</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 5</span></span>
@@ -184,18 +184,18 @@ Round 7: <code>r7_merged_data_34ctry.release.sav</code></p>
 <span class="co">#&gt; 8                                               country</span>
 <span class="co">#&gt; 9                                     date of interview</span>
 <span class="co">#&gt; 10                                      trust president</span></code></pre></div>
-<p>The <code><a href="../reference/merge_waves.html">merge_waves()</a></code> function harmonizes the variable names, the variable labels and survey identifiers and returns a list of surveys (of class <code><a href="../reference/survey.html">survey()</a></code>.) The parameter <code>var_harmonization</code> must be a list or a data frame that contains at least the original file name (<code>filename</code>), original variable names (<code>var_name_orig</code>), the new variable names (<code>var_name</code>) and their labels (<code>var_label</code>), so that the program knows which variables to take from what files and how to call and label them after transformation.</p>
+<p>The <code><a href="../reference/merge_surveys.html">merge_surveys()</a></code> function harmonizes the variable names, the variable labels and survey identifiers and returns a list of surveys (of class <code><a href="../reference/survey.html">survey()</a></code>.) The parameter <code>var_harmonization</code> must be a list or a data frame that contains at least the original file name (<code>filename</code>), original variable names (<code>var_name_orig</code>), the new variable names (<code>var_name</code>) and their labels (<code>var_label</code>), so that the program knows which variables to take from what files and how to call and label them after transformation.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">merged_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/merge_waves.html">merge_waves</a></span> <span class="op">(</span> waves <span class="op">=</span> <span class="va">ab_waves</span>, 
+<code class="sourceCode R"><span class="va">merged_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/merge_surveys.html">merge_surveys</a></span> <span class="op">(</span> waves <span class="op">=</span> <span class="va">ab_waves</span>, 
                            var_harmonization <span class="op">=</span> <span class="va">to_harmonize</span>  <span class="op">)</span>
 
 <span class="co"># country will be a character variable, and doesn't need a label</span>
 <span class="va">merged_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> <span class="va">merged_ab</span>, 
          FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span>  <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
            <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span> country <span class="op">=</span> <span class="fu"><a href="../reference/labelled_spss_survey.html">as_character</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>Review the most important metadata with <code><a href="../reference/document_waves.html">document_waves()</a></code>:</p>
+<p>Review the most important metadata with <code><a href="../reference/document_surveys.html">document_surveys()</a></code>:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">documenteded_merged_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/document_waves.html">document_waves</a></span><span class="op">(</span><span class="va">merged_ab</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">documenteded_merged_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/document_surveys.html">document_surveys</a></span><span class="op">(</span><span class="va">merged_ab</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">documenteded_merged_ab</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 5</span></span>
@@ -316,9 +316,9 @@ Round 7: <code>r7_merged_data_34ctry.release.sav</code></p>
                   <span class="st">"inap"</span><span class="op">=</span><span class="fl">99999</span><span class="op">)</span>
   <span class="op">)</span>
 <span class="op">}</span></code></pre></div>
-<p>We apply this function to the trust variables. The <code><a href="../reference/harmonize_waves.html">harmonize_waves()</a></code> function binds all variables that are present in all surveys.</p>
+<p>We apply this function to the trust variables. The <code><a href="../reference/harmonize_surveys.html">harmonize_surveys()</a></code> function binds all variables that are present in all surveys.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">harmonized_ab_waves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_waves.html">harmonize_waves</a></span> <span class="op">(</span> 
+<code class="sourceCode R"><span class="va">harmonized_ab_waves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_surveys.html">harmonize_surveys</a></span> <span class="op">(</span> 
   waves <span class="op">=</span> <span class="va">merged_ab</span>, 
   .f <span class="op">=</span> <span class="va">harmonize_ab_trust</span> <span class="op">)</span> </code></pre></div>
 <p>Let’s look at the attributes of <code>harmonized_ab_waves</code>.</p>

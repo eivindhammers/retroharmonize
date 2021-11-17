@@ -9,7 +9,7 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -434,7 +434,7 @@ a list of  <code>metadata_create</code> calls.</p>
 <span class="r-in">                                        <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">examples_dir</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">example_surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_surveys.html">read_surveys</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">examples_dir</span>, <span class="va">my_rds_files</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">metadata_waves_create</span> <span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">metadata_surveys_create</span> <span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       filename     id var_name_orig          class_orig</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   ZA5913.rds ZA5913         rowid           character</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   ZA5913.rds ZA5913           doi           character</span>

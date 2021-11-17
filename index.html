@@ -49,7 +49,7 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -99,7 +99,7 @@
 </div>
 <!-- badges: start -->
 
-<p>The goal of <code>retroharmonize</code> is to facilitate retrospective (ex-post) harmonization of data, particularly survey data, in a reproducible manner. The package provides tools for organizing the metadata, standardizing the coding of variables, variable names and value labels, including missing values, and for documenting all transformations, with the help of comprehensive S3 classes.</p>
+<p>The goal of <code>retroharmonize</code> is to facilitate retrospective (ex-post) harmonization of survey data in a reproducible manner. The package provides tools for organizing the metadata, standardizing the coding of variables, variable names and value labels, including missing values, and for documenting all transformations, with the help of comprehensive S3 classes.</p>
 <p>Currently being generalized from problems solved in the not yet released <a href="https://github.com/antaldaniel/eurobarometer" class="external-link">eurobarometer</a> package (<a href="https://doi.org/10.5281/zenodo.3825700" class="external-link">doi</a>.)</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -116,12 +116,28 @@
 <div class="section level2">
 <h2 id="retrospective-data-harmonization">Retrospective data harmonization<a class="anchor" aria-label="anchor" href="#retrospective-data-harmonization"></a>
 </h2>
-<p>The aim of <code>retroharmonize</code> is to provide tools for reproducible retrospective (ex-post) harmonization of datasets that contain variables measuring the same concepts but coded in different ways. Ex-post data harmonization enables better use of existing data and creates new research opportunities. For example, harmonizing data from different countries enables cross-national comparisons, while merging data from different time points makes it possible to track changes over time.</p>
-<p>Retrospective data harmonization is associated with challenges including conceptual issues with establishing equivalence and comparability, practical complications of having to standardize the naming and coding of variables, technical difficulties with merging data stored in different formats, and the need to document a large number of data transformations. The <code>retroharmonize</code> package assists with the latter three components, freeing up the capacity of researchers to focus on the first.</p>
-<p>Specifically, the <code>retroharmonize</code> package proposes a reproducible workflow, including a new class for storing data together with the harmonized and original metadata, as well as functions for importing data from different formats, harmonizing data and metadata, documenting the harmonization process, and converting between data types. See <a href="https://retroharmonize.dataobservatory.eu/reference/retrohamonize.html" class="external-link">here</a> for an overview of the functionalities.</p>
-<p>The new <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class is an extension of <a href="https://haven.tidyverse.org/reference/labelled_spss.html" class="external-link">haven’s labelled_spss class</a>. It not only preserves variable and value labels and the user-defined missing range, but also gives an identifier, for example, the filename or the wave number, to the vector. Additionally, it enables the preservation – as metadata attributes – of the original variable names, labels, and value codes and labels, from the source data, in addition to the harmonized variable names, labels, and value codes and labels. This way, the harmonized data also contain the pre-harmonization record. The stored original metadata can be used for validation and documentation purposes.</p>
+<p>Survey data harmonization refers to procedures that improve the data comparability or the inferential capacity of multiple surveys. <em>Ex-post</em> or retrospective harmonization refers to the procedures applied to data that is already collected, while <em>ex ante</em> harmonization refers to survey design that makes future retrospective harmonization easier or more complete. From a computational point of view, the tasks are very similar or identical. The <em>ex ante</em> harmonization refers to procedures followed before the primary data is collected in order to make later data harmonization easier or more complete.</p>
+<p>Our reproducible workflow aims to arrive to a single data frame that contains the observations joined from different surveys, with harmonized coding and labelling. Conceptually, we can work with two versions of two workflows. Sometimes it may be practical to alter the variable class and the label/code harmonization.</p>
+<ol style="list-style-type: decimal">
+<li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize variable names -&gt; Harmonize variable classes -&gt; Harmonize labels and codes -&gt; Join data</p></li>
+<li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize variable names -&gt; Harmonize labels and codes - &gt; Harmonize variable classes -&gt; Join data</p></li>
+<li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize labels and codes -&gt; Harmonize variable classes -&gt; Harmonize names -&gt; Join data</p></li>
+</ol>
+<p>If you are planning to analyze the data in R, you are likely to want to have all the data in numeric or factor classes, because these are the variable types that are supported by many statistical functions in many packages. If you prefer to use a different analytical software, the joined, longitudional data frame must be exported in a consistent manner.</p>
+<p>The first workflow is relatively easy to implement when the number of variables to be harmonized is relatively low.</p>
+</div>
+<div class="section level2">
+<h2 id="working-with-spss-files">Working with SPSS files<a class="anchor" aria-label="anchor" href="#working-with-spss-files"></a>
+</h2>
+<p>Survey data is often available in SPSS’s custom labelled format. Unfortunately, joining data with different labelling is not possible. When you work with first workflow, and you do not need to preserve the history of complex harmonization problems, codebook, etc, then you do not necessary need to look under the hoods of our S3 classes.</p>
+<p>For more complex and reproducible cases, particularly which involve SPSS files, the <code>retroharmonize</code> package introduces a new class for storing data together with the harmonized and original metadata, as well as functions for importing data from different formats, harmonizing data and metadata, documenting the harmonization process, and converting between data types. See <a href="https://retroharmonize.dataobservatory.eu/reference/retrohamonize.html" class="external-link">here</a> for an overview of the functionalities.</p>
+<p>We rely on the haven package to import SPSS classes, which inherits the labelled class from labelled. The haven package is not designed to harmonize dissimilarly coded SPSS files. The new <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class is an inherited extension of <a href="https://haven.tidyverse.org/reference/labelled_spss.html" class="external-link">haven’s labelled_spss class</a>. It not only preserves variable and value labels and the user-defined missing range, but also gives an identifier, for example, the filename or the wave number, to the vector. Additionally, it enables the preservation – as metadata attributes – of the original variable names, labels, and value codes and labels, from the source data, in addition to the harmonized variable names, labels, and value codes and labels. This way, the harmonized data also contain the pre-harmonization record. The stored original metadata can be used for validation and documentation purposes.</p>
 <p>The vignette <a href="https://retroharmonize.dataobservatory.eu/articles/labelled_spss_survey.html" class="external-link">Working With The labelled_spss_survey Class</a> provides more information about the <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class.</p>
 <p>In <a href="https://retroharmonize.dataobservatory.eu/articles/harmonize_labels.html" class="external-link">Harmonize Value Labels</a> we discuss the characteristics of the <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class and demonstrates the problems that using this class solves.</p>
+</div>
+<div class="section level2">
+<h2 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+</h2>
 <p>We also provide three extensive case studies illustrating how the <code>retroharmonize</code> package can be used for ex-post harmonization of data from cross-national surveys:</p>
 <ul>
 <li><a href="https://retroharmonize.dataobservatory.eu/articles/afrobarometer.html" class="external-link">Afrobarometer</a></li>
@@ -152,7 +168,6 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Daniel Antal (2021). retroharmonize: Ex Post Survey Data</span>
 <span class="co">#&gt;   Harmonization. https://retroharmonize.dataobservatory.eu/,</span>
-<span class="co">#&gt;   https://ropengov.github.io/retroharmonize/,</span>
 <span class="co">#&gt;   https://github.com/rOpenGov/retroharmonize.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
@@ -162,7 +177,6 @@
 <span class="co">#&gt;     author = {Daniel Antal},</span>
 <span class="co">#&gt;     year = {2021},</span>
 <span class="co">#&gt;     note = {https://retroharmonize.dataobservatory.eu/,</span>
-<span class="co">#&gt; https://ropengov.github.io/retroharmonize/,</span>
 <span class="co">#&gt; https://github.com/rOpenGov/retroharmonize},</span>
 <span class="co">#&gt;   }</span></code></pre></div>
 </div>

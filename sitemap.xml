@@ -52,22 +52,28 @@
     <loc>https://ropengov.github.io/retroharmonize/reference/create_codebook.html</loc>
   </url>
   <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/crosswalk_surveys.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/crosswalk_table_create.html</loc>
+  </url>
+  <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/document_survey_item.html</loc>
   </url>
   <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/document_waves.html</loc>
+    <loc>https://ropengov.github.io/retroharmonize/reference/document_surveys.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_na_values.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_surveys.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_values.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_var_names.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_waves.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/here.html</loc>
@@ -82,7 +88,7 @@
     <loc>https://ropengov.github.io/retroharmonize/reference/labelled_spss_survey.html</loc>
   </url>
   <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/merge_waves.html</loc>
+    <loc>https://ropengov.github.io/retroharmonize/reference/merge_surveys.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/metadata_create.html</loc>
@@ -118,7 +124,7 @@
     <loc>https://ropengov.github.io/retroharmonize/reference/subset_save_surveys.html</loc>
   </url>
   <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/subset_waves.html</loc>
+    <loc>https://ropengov.github.io/retroharmonize/reference/subset_surveys.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/suggest_permanent_names.html</loc>

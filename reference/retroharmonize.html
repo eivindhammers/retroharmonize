@@ -19,7 +19,7 @@ comprehensive S3 classes."><meta property="og:image" content="https://ropengov.g
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -93,26 +93,26 @@ and variable names.<br><code><a href="suggest_permanent_names.html">suggest_perm
     <h2 id="variable-label-harmonization-functions">variable label harmonization functions<a class="anchor" aria-label="anchor" href="#variable-label-harmonization-functions"></a></h2>
     
 
-<p>Create consistent coding and labelling.<br><code><a href="create_codebook.html">create_codebook</a></code>: Create a codebook from the original SPSS variable codes and labels.<br><code><a href="harmonize_values.html">harmonize_values</a></code>: Harmonize the label list across surveys.<br><code><a href="harmonize_waves.html">harmonize_waves</a></code>: Create a list of surveys with harmonized value labels.<br><code><a href="na_range_to_values.html">na_range_to_values</a></code>: Make the <code>na_range</code> attributes,
+<p>Create consistent coding and labelling.<br><code><a href="create_codebook.html">create_codebook</a></code>: Create a codebook from the original SPSS variable codes and labels.<br><code><a href="harmonize_values.html">harmonize_values</a></code>: Harmonize the label list across surveys.<br><code><a href="harmonize_surveys.html">harmonize_surveys</a></code>: Create a list of surveys with harmonized value labels.<br><code><a href="na_range_to_values.html">na_range_to_values</a></code>: Make the <code>na_range</code> attributes,
 as imported from SPSS, consistent with the <code>na_values</code> attributes.<br></p>
     </div>
     <div class="section level2">
     <h2 id="survey-harmonization-functions">survey harmonization functions<a class="anchor" aria-label="anchor" href="#survey-harmonization-functions"></a></h2>
     
 
-<p><code><a href="merge_waves.html">merge_waves</a></code>: Create a list of surveys with harmonized names and variable labels.<br></p>
+<p><code><a href="merge_surveys.html">merge_surveys</a></code>: Create a list of surveys with harmonized names and variable labels.<br></p>
     </div>
     <div class="section level2">
     <h2 id="documentation-functions">documentation functions<a class="anchor" aria-label="anchor" href="#documentation-functions"></a></h2>
     
 
-<p><code><a href="metadata_create.html">metadata_create</a></code> and <code><a href="metadata_create.html">metadata_waves_create</a></code><br><code><a href="create_codebook.html">create_codebook</a></code> and <code><a href="create_codebook.html">codebook_waves_create</a></code></p>
+<p><code><a href="metadata_create.html">metadata_create</a></code> and <code><a href="metadata_create.html">metadata_surveys_create</a></code><br><code><a href="create_codebook.html">create_codebook</a></code> and <code><a href="create_codebook.html">codebook_waves_create</a></code></p>
 
 <p>Make the workflow reproducible by recording the harmonization process.
 <code><a href="document_survey_item.html">document_survey_item</a></code>: Returns a list of the current and historic coding, 
 labelling of the valid range and missing values or range, the history of the variable names 
 and the history of the survey IDs.
-<code><a href="document_waves.html">document_waves</a></code>: Document the key attributes surveys in a survey list.</p>
+<code><a href="document_surveys.html">document_surveys</a></code>: Document the key attributes surveys in a survey list.</p>
     </div>
     <div class="section level2">
     <h2 id="type-conversion-functions">type conversion functions<a class="anchor" aria-label="anchor" href="#type-conversion-functions"></a></h2>

@@ -9,7 +9,7 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,9 @@
     <h2>Usage</h2>
     <pre class="sourceCode r"><code><span class="fu">create_codebook</span><span class="op">(</span>metadata <span class="op">=</span> <span class="cn">NULL</span>, survey <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
 
-<span class="fu">codebook_waves_create</span><span class="op">(</span><span class="va">waves</span><span class="op">)</span></code></pre>
+<span class="fu">codebook_waves_create</span><span class="op">(</span><span class="va">waves</span><span class="op">)</span>
+
+<span class="fu">codebook_surveys_create</span><span class="op">(</span><span class="va">survey_list</span><span class="op">)</span></code></pre>
     </div>
 
     <div id="ref-sections">
@@ -74,6 +76,8 @@ given as parameter, the metadata will be set to the metadata of this particular
 survey by <code><a href="metadata_create.html">metadata_create</a></code>.</p></dd>
 <dt>waves</dt>
 <dd><p>A list of surveys.</p></dd>
+<dt>survey_list</dt>
+<dd><p>A list containing surveys of class survey.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -127,7 +131,7 @@ character types are not included, because they do not require coding.</p>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">examples_dir</span>, <span class="va">survey_list</span><span class="op">)</span>, </span>
 <span class="r-in">  save_to_rds <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>     </span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu">codebook_waves_create</span> <span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">codebook_surveys_create</span> <span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,379 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    entry id     filename   var_name_orig label_orig val_code_orig val_label_orig</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>

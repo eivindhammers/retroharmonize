@@ -39,7 +39,7 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -151,10 +151,10 @@
 <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">arab_waves</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span>,<span class="st">"id"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Arab_Barometer_2"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">arab_waves</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span>,<span class="st">"id"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Arab_Barometer_3"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">arab_waves</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span>,<span class="st">"id"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Arab_Barometer_4"</span></code></pre></div>
-<p>We use <code><a href="../reference/document_waves.html">document_waves()</a></code>to see the primary descriptive information of our survey wave (one harmonized survey set) files. Visually check that the file names correspond with the meaningful IDs that you gave to each survey wave, i.e., <code>Arab_Barometer_1</code> corresponds with <code>ABI_English.sav</code>.</p>
+<p>We use <code><a href="../reference/document_surveys.html">document_surveys()</a></code>to see the primary descriptive information of our survey wave (one harmonized survey set) files. Visually check that the file names correspond with the meaningful IDs that you gave to each survey wave, i.e., <code>Arab_Barometer_1</code> corresponds with <code>ABI_English.sav</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># In the vignette this is pre-loaded.</span>
-<span class="va">documented_arab_waves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/document_waves.html">document_waves</a></span><span class="op">(</span><span class="va">arab_waves</span><span class="op">)</span></code></pre></div>
+<span class="va">documented_arab_waves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/document_surveys.html">document_surveys</a></span><span class="op">(</span><span class="va">arab_waves</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">documented_arab_waves</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 5</span></span>
@@ -172,8 +172,7 @@
 <p>In this step, we build a comprehensive metadata table that maps information about variable names and labels of the survey data. Each row in the table below refers to a different variable in the survey data file. This is accomplished using the <code><a href="../reference/metadata_create.html">metadata_create()</a></code> function, which collects metadata from survey data files, normalizes variable labels, and defines the valid and missing value ranges, codes, and labels.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># In the vignette this is pre-loaded.</span>
-<span class="va">arabbarometer_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> X <span class="op">=</span> <span class="va">arab_waves</span>, FUN <span class="op">=</span> <span class="va">metadata_create</span><span class="op">)</span>
-<span class="va">arabbarometer_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">arabbarometer_metadata</span><span class="op">)</span></code></pre></div>
+<span class="va">arabbarometer_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metadata_create.html">metadata_surveys_create</a></span><span class="op">(</span><span class="va">arab_waves</span><span class="op">)</span></code></pre></div>
 <p>Let’s randomly review some metadata:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span>
@@ -263,14 +262,14 @@
 <li>Label harmonization means that the label for <em>Algeria</em> in the <code>country</code> variable must be a single value, for example, <code>Algeria</code>, instead of <code>Algeria</code>, <code>algeria</code>, <code>1. Algeria</code>.</li>
 </ul>
 <p>In this case, the variable name harmonization is a simple task. The names need a bit of normalization for programmatic use.</p>
-<p>The function <code><a href="../reference/merge_waves.html">merge_waves()</a></code> harmonizes the variable names, the variable labels, the survey identifiers, and returns a list of surveys (of <code>class survey()</code>.) The parameter <em>var_harmonization</em> must be a list or a data frame that contains at least the original file name (<code>filename</code>), original variable names (<code>var_name_orig</code>), the new variable names (<code>var_name</code>) and their labels (<code>var_label</code>), so that the function correctly makes the harmonization steps.</p>
+<p>The function <code><a href="../reference/merge_surveys.html">merge_surveys()</a></code> harmonizes the variable names, the variable labels, the survey identifiers, and returns a list of surveys (of <code>class survey()</code>.) The parameter <em>var_harmonization</em> must be a list or a data frame that contains at least the original file name (<code>filename</code>), original variable names (<code>var_name_orig</code>), the new variable names (<code>var_name</code>) and their labels (<code>var_label</code>), so that the function correctly makes the harmonization steps.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># In the vignette this is pre-loaded.</span>
-<span class="va">merged_ab_elections</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/merge_waves.html">merge_waves</a></span><span class="op">(</span>
-  waves <span class="op">=</span> <span class="va">arab_waves</span>, 
+<span class="va">merged_ab_elections</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/merge_surveys.html">merge_surveys</a></span><span class="op">(</span>
+  survey_list <span class="op">=</span> <span class="va">arab_waves</span>, 
   var_harmonization <span class="op">=</span> <span class="va">to_harmonize_elections</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/document_waves.html">document_waves</a></span><span class="op">(</span><span class="va">merged_ab_elections</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/document_surveys.html">document_surveys</a></span><span class="op">(</span><span class="va">merged_ab_elections</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 5</span></span>
 <span class="co">#&gt;   id               filename           ncol  nrow object_size</span>
 <span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -365,7 +364,7 @@
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/document_waves.html">document_waves</a></span><span class="op">(</span><span class="va">ab_elections</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/document_surveys.html">document_surveys</a></span><span class="op">(</span><span class="va">ab_elections</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 5</span></span>
 <span class="co">#&gt;   id               filename           ncol  nrow object_size</span>
 <span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -376,7 +375,7 @@
 <div class="section level3">
 <h3 id="variable-label-harmonization">Variable Label Harmonization<a class="anchor" aria-label="anchor" href="#variable-label-harmonization"></a>
 </h3>
-<p>The R language uses special NA values for missing values. These are differently encoded in SPSS, and in various survey programs unfortunately are not always consistently used. Compared to our Eurobarometer and Afrobarometer use cases, the Arab Barometer needs particularly lot of harmonization, because - The published Arab Barometer files do not contain either missing range, nor the explicitly stated missing cases, and the values that refer to various missing cases are mixed with valid values; - The missing cases, like the valid cases, are labelled inconsistently.</p>
+<p>The R language uses special <code>NA</code> values for missing values. These are differently encoded in SPSS, and in various survey programs unfortunately are not always consistently used. Compared to our Eurobarometer and Afrobarometer use cases, the Arab Barometer needs particularly lot of harmonization, because - The published Arab Barometer files do not contain either missing range, nor the explicitly stated missing cases, and the values that refer to various missing cases are mixed with valid values; - The missing cases, like the valid cases, are labelled inconsistently.</p>
 <p>Our variable label harmonization therefore takes two steps: carefully labelling and removing the missing cases from the valid range, and then harmonizing the valid value labels.</p>
 <p>Arabbarometer’s SPSS files use various missing value categories, we must carefully harmonize them, too. The entire value range is the following:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
@@ -420,10 +419,10 @@
                                  <span class="st">"missing"</span><span class="op">=</span><span class="fl">99999</span>
                    <span class="op">)</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
-<p>The problem is that the numeric codes are not only used for the evaluation question, but also for country names. Beware not to apply the election evaluation code tabel to the country names!</p>
+<p>The problem is that the numeric codes are not only used for the evaluation question, but also for country names. Beware not to apply the election evaluation code table to the country names!</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">harmonized_evaluations</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_waves.html">harmonize_waves</a></span><span class="op">(</span> 
-  waves <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> <span class="va">ab_elections</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">harmonized_evaluations</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_surveys.html">harmonize_surveys</a></span><span class="op">(</span> 
+  survey_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> <span class="va">ab_elections</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
                      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span> <span class="op">(</span><span class="op">-</span><span class="va">.data</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span>, 
   .f <span class="op">=</span><span class="va">harmonize_arabb_eval</span> <span class="op">)</span></code></pre></div>
 <p>There is a bit of a work with the country variable, too, but this variable has no missing cases, and instead of creating a labelling, we will convert them into factors after cleaning. We only show a few examples of the labelling issues:</p>
@@ -440,9 +439,9 @@
   <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"\\d{1,}\\.\\s?"</span>,<span class="st">""</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="fu"><a href="../reference/labelled_spss_survey.html">as_character</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, which <span class="op">=</span> <span class="st">"both"</span><span class="op">)</span>
   <span class="fu"><a href="../reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="fu">snakecase</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/snakecase/man/caseconverter.html" class="external-link">to_title_case</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">}</span></code></pre></div>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">harmonize_countries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> <span class="va">ab_elections</span>, 
-                                <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-                                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span> <span class="op">(</span> <span class="op">-</span><span class="va">.data</span><span class="op">$</span><span class="va">evaluation_in_the_last_parliamentary_elections</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">harmonize_countries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span>
+  X <span class="op">=</span> <span class="va">ab_elections</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
+      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span> <span class="op">(</span> <span class="op">-</span><span class="va">.data</span><span class="op">$</span><span class="va">evaluation_in_the_last_parliamentary_elections</span><span class="op">)</span> <span class="op">}</span>
                                 <span class="op">)</span>
 <span class="va">harmonized_countries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> <span class="va">harmonize_countries</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
                 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> country <span class="op">=</span> <span class="fu">normalize_country_names</span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
@@ -465,10 +464,10 @@
 <span class="co">#&gt;  Evaluation in the last parliamentary elections</span>
 <span class="co">#&gt; Numeric values without coding:</span>
 <span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span>
-<span class="co">#&gt;       0       0       2   15099       3   99999    2004 </span>
+<span class="co">#&gt;     0.0     0.0     2.0   318.3     3.0 99999.0    2004 </span>
 <span class="co">#&gt; Numeric representation:</span>
 <span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span>
-<span class="co">#&gt;   0.000   0.000   2.000   1.462   3.000   3.000    7226 </span>
+<span class="co">#&gt;   0.000   0.000   2.000   6.067   3.000  99.000    2112 </span>
 <span class="co">#&gt; Factor representation:</span>
 <span class="co">#&gt;  unique_id_ab_english     weight        </span>
 <span class="co">#&gt;  Length:36591         Min.   : 0.02837  </span>
@@ -479,13 +478,21 @@
 <span class="co">#&gt;                       Max.   :16.48268  </span>
 <span class="co">#&gt;                       NA's   :1         </span>
 <span class="co">#&gt;                                         </span>
+<span class="co">#&gt;                                         </span>
+<span class="co">#&gt;                                         </span>
+<span class="co">#&gt;                                         </span>
+<span class="co">#&gt;                                         </span>
 <span class="co">#&gt;  evaluation_in_the_last_parliamentary_elections</span>
 <span class="co">#&gt;  not_free           :9453                      </span>
-<span class="co">#&gt;  some_major_problems:4337                      </span>
+<span class="co">#&gt;  some_major_problems:7434                      </span>
 <span class="co">#&gt;  some_minor_problems:8141                      </span>
-<span class="co">#&gt;  free_and_fair      :7434                      </span>
-<span class="co">#&gt;  do_not_know        :4954                      </span>
-<span class="co">#&gt;  declined           : 262                      </span>
+<span class="co">#&gt;  free_and_fair      :4337                      </span>
+<span class="co">#&gt;  8                  :3550                      </span>
+<span class="co">#&gt;  9                  : 104                      </span>
+<span class="co">#&gt;  98                 :1404                      </span>
+<span class="co">#&gt;  99                 :  56                      </span>
+<span class="co">#&gt;  do_not_know        :   0                      </span>
+<span class="co">#&gt;  declined           : 102                      </span>
 <span class="co">#&gt;  missing            :   6                      </span>
 <span class="co">#&gt;  NA's               :2004</span></code></pre></div>
 <p>We see a missing weight, and we will impute 1 for this particular value, so that we can use weighted averaging in the numerical representation of our data.</p>
@@ -495,9 +502,9 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span> <span class="op">(</span> eval_parl <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">evaluation_in_the_last_parliamentary_elections</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> 
     wave <span class="op">=</span> <span class="fu"><a href="../reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">".*(\\b[A-Z0-9]+).*"</span>, <span class="st">"\\1"</span>, <span class="va">.data</span><span class="op">$</span><span class="va">unique_id_ab_english</span><span class="op">)</span><span class="op">)</span>,
-    weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span>, <span class="fl">1</span>, <span class="va">.data</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span>, 
+    weight     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span>, <span class="fl">1</span>, <span class="va">.data</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span>, 
     eval_parl <span class="op">=</span> <span class="fu"><a href="../reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_parl</span><span class="op">)</span>, 
-    country <span class="op">=</span> <span class="fu"><a href="../reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span> 
+    country   <span class="op">=</span> <span class="fu"><a href="../reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span> 
 
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">harmonized_ab_dataset</span><span class="op">)</span>
 <span class="co">#&gt;  unique_id_ab_english      country          weight        </span>
@@ -511,10 +518,10 @@
 <span class="co">#&gt;                eval_parl       wave      </span>
 <span class="co">#&gt;  not_free           :9453   ABII :12782  </span>
 <span class="co">#&gt;  some_minor_problems:8141   ABIII:14809  </span>
-<span class="co">#&gt;  free_and_fair      :7434   ABIV : 9000  </span>
-<span class="co">#&gt;  do_not_know        :4954                </span>
-<span class="co">#&gt;  some_major_problems:4337                </span>
-<span class="co">#&gt;  (Other)            : 268                </span>
+<span class="co">#&gt;  some_major_problems:7434   ABIV : 9000  </span>
+<span class="co">#&gt;  free_and_fair      :4337                </span>
+<span class="co">#&gt;  8                  :3550                </span>
+<span class="co">#&gt;  (Other)            :1672                </span>
 <span class="co">#&gt;  NA's               :2004</span></code></pre></div>
 </div>
 <div class="section level3">
@@ -526,7 +533,7 @@
 <code class="sourceCode R"><span class="va">categorical_summary</span> <span class="op">&lt;-</span> <span class="va">harmonized_ab_dataset</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span> <span class="op">(</span> <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html" class="external-link">all_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"unique_id_ab_english"</span><span class="op">)</span><span class="op">)</span> <span class="op">)</span>  <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span> <span class="op">(</span> <span class="va">.data</span><span class="op">$</span><span class="va">country</span>, <span class="va">.data</span><span class="op">$</span><span class="va">wave</span>, <span class="va">.data</span><span class="op">$</span><span class="va">eval_parl</span> <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span> <span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span> <span class="op">(</span>n        <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,
              weighted <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="va">weight</span>, <span class="fl">0</span><span class="op">)</span>
              <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> </code></pre></div>
@@ -537,16 +544,16 @@
 <span class="co">#&gt;    country wave  eval_parl               n weighted</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sudan   ABIII not_free              360      176</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lebanon ABIV  some_minor_problems   412      341</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lebanon ABIII free_and_fair         271      556</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Morocco ABIV  some_minor_problems   386      362</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lebanon ABIV  some_minor_problems   412      377</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lebanon ABII  some_major_problems   268      242</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lebanon ABIV  some_minor_problems   412      540</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lebanon ABIII free_and_fair         210      264</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Morocco ABIV  some_minor_problems   386      333</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lebanon ABIV  some_minor_problems   412      388</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lebanon ABII  some_major_problems   342      259</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lebanon ABIII not_free              272      268</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tunisia ABIV  free_and_fair         302      296</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Algeria ABII  do_not_know           407      326</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Morocco ABIII some_minor_problems   328      375</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Jordan  ABIII free_and_fair         172      410</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tunisia ABIV  some_minor_problems   408      327</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Algeria ABII  8                     407      326</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Morocco ABIII some_minor_problems   328      362</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Jordan  ABIII free_and_fair         240      345</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Sudan   ABIII not_free              360      439</span></code></pre></div>
 <p>The output as shown in the table above indicates the number of valuations given by interviewees to the election evaluation question, by country and by survey wave. In the table below (which we only print in part), we assign numeric values to the evaluation categories. To recall our simple coding: - <code>3</code> = Free and fair - <code>2</code> = Some minor problems - <code>1</code> = Some major problems - <code>0</code> = Not free.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
@@ -555,7 +562,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> eval_parl <span class="op">=</span> <span class="fu"><a href="../reference/labelled_spss_survey.html">as_numeric</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_parl</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span> <span class="op">(</span> <span class="va">.data</span><span class="op">$</span><span class="va">country</span>, <span class="va">.data</span><span class="op">$</span><span class="va">wave</span> <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span> <span class="op">(</span>
-    mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/weighted.mean.html" class="external-link">weighted.mean</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_parl</span>, w <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span>,
+    mean   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/weighted.mean.html" class="external-link">weighted.mean</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_parl</span>, w <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span>,
     median <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_parl</span><span class="op">)</span>
   <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> 
@@ -567,18 +574,18 @@
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 4</span></span>
 <span class="co">#&gt;    country wave   mean median</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Iraq    ABII   2.53      2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Egypt   ABIV   3.38      4</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Iraq    ABII   2.83      3</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Egypt   ABIV   2.92      2</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lebanon ABIV  <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Kuwait  ABIII  3.27      3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Morocco ABIV   3.45      3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lebanon ABII   2.69      3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Sudan   ABIII  2.59      3</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Kuwait  ABIII  2.88      3</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Morocco ABIV   4.10      3</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lebanon ABII   2.65      3</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Sudan   ABIII  2.72      3</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Morocco ABIII  2.82      3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Tunisia ABIII  3.59      4</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Tunisia ABIII  2.63      2</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Tunisia ABII   1.48      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Libya   ABIII  3.11      4</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Egypt   ABIII  2.88      3</span></code></pre></div>
+<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Libya   ABIII  2.60      2</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Egypt   ABIII  2.72      2</span></code></pre></div>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html" class="external-link">include_graphics</a></span><span class="op">(</span>
   <span class="fu"><a href="../reference/here.html">here</a></span><span class="op">(</span><span class="st">'vignettes'</span>, <span class="st">'arabb-comparison-chart.png'</span><span class="op">)</span>
@@ -690,7 +697,7 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
 <span class="co">#&gt; [1] snakecase_0.11.0     knitr_1.36           ggplot2_3.3.5       </span>
-<span class="co">#&gt; [4] tidyr_1.1.4          dplyr_1.0.7          retroharmonize_0.2.0</span>
+<span class="co">#&gt; [4] tidyr_1.1.4          dplyr_1.0.7          retroharmonize_0.2.2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
 <span class="co">#&gt;  [1] tidyselect_1.1.1         xfun_0.28                bslib_0.3.1             </span>

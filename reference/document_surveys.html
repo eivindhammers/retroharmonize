@@ -48,7 +48,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Document survey lists</h1>
-      <small class="dont-index">Source: <a href="https://github.com/rOpenGov/retroharmonize/blob/HEAD/R/document_waves.R" class="external-link"><code>R/document_waves.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/rOpenGov/retroharmonize/blob/HEAD/R/document_surveys.R" class="external-link"><code>R/document_surveys.R</code></a></small>
       <div class="d-none name"><code>document_surveys.Rd</code></div>
     </div>
 
@@ -60,13 +60,15 @@
     <h2>Usage</h2>
     <pre class="sourceCode r"><code><span class="fu">document_surveys</span><span class="op">(</span><span class="va">survey_list</span><span class="op">)</span>
 
-<span class="fu">document_waves</span><span class="op">(</span><span class="va">survey_list</span>, <span class="va">var_harmonization</span><span class="op">)</span></code></pre>
+<span class="fu">document_waves</span><span class="op">(</span><span class="va">waves</span><span class="op">)</span></code></pre>
     </div>
 
     <div id="ref-sections">
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>survey_list</dt>
+<dd><p>A list of <code><a href="survey.html">survey</a></code> objects.</p></dd>
+<dt>waves</dt>
 <dd><p>A list of <code><a href="survey.html">survey</a></code> objects.</p></dd>
 </dl></div>
     <div class="section level2">
@@ -98,7 +100,7 @@ Currently called <code>document_surveys</code>.</p>
 <span class="r-in"> </span>
 <span class="r-in"><span class="va">documented_surveys</span> <span class="op">&lt;-</span> <span class="fu">document_surveys</span><span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">documented_surveys</span>, <span class="st">"original_list"</span> <span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">documented_surveys</span>, <span class="st">"original_list"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "example_surveys"</span>
 <span class="r-in"><span class="va">documented_surveys</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 5</span></span>

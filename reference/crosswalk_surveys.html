@@ -72,7 +72,7 @@ data frame with at least the following columns: <code>var_name_orig</code>, <cod
 for harmonizing the variable names. If <code>val_label_orig</code>, <code>val_label_target</code> 
 are present, the value labels will be harmonized, too. If 
 <code>var_numeric_orig</code>, <code>var_numeric_target</code> are present, the numeric codes of the 
-variable will be harmonized. If <code>var_class</code> is present, then the class of the variable 
+variable will be harmonized. If <code>class_target</code> is present, then the class of the variable 
 will be harmonized to any of <code>factor</code>, <code>numeric</code> or <code>character</code> using 
 <code><a href="as_factor.html">as_factor</a></code>, <code><a href="labelled_spss_survey.html">as_numeric</a></code>, or <code><a href="labelled_spss_survey.html">as_character</a></code>.</p></dd>
 <dt>na_values</dt>
@@ -107,6 +107,7 @@ the value labels, the numeric codes, and the special missing labels, too.</p>
 <span class="r-in">                                          <span class="st">"qd3_8"</span> , <span class="st">"qd7.4"</span>, <span class="st">"qd7.8"</span>, <span class="st">"qd6.4"</span>, <span class="st">"qd6.8"</span><span class="op">)</span>,</span>
 <span class="r-in">                                          <span class="op">]</span></span>
 <span class="r-in"><span class="va">crosswalk_table</span>    <span class="op">&lt;-</span> <span class="fu"><a href="crosswalk_table_create.html">crosswalk_table_create</a></span> <span class="op">(</span> metadata <span class="op">=</span> <span class="va">documented_surveys</span> <span class="op">)</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in purrr::reduce(ctable_list, full_join):</span> object 'full_join' not found</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

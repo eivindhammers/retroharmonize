@@ -33,14 +33,16 @@
 <!-- rogtemplate style sheet --><link href="../BS5/rogtemplate.css" rel="stylesheet">
 </head>
 <body>
-    <a href="#container" class="visually-hidden-focusable">Skip to contents</a>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
+    
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.3</small>
 
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -58,6 +60,7 @@
     <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
     <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
     <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
+    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
   </div>
 </li>
 <li class="nav-item">
@@ -77,17 +80,18 @@
 </li>
       </ul>
 </div>
+
+    
   </div>
-</nav><div class="container template-article" id="container">
+</nav><div class="container template-article">
 <script src="arabbarometer_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header">
+  <main id="main"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Case Study: Working With Arab Barometer Surveys</h1>
                         <h4 data-toc-skip class="author">Daniel Antal</h4>
                         <h4 data-toc-skip class="author">Yousef Ibrahim</h4>
                         <h4 data-toc-skip class="author">Ahmed Shaibani</h4>
             
-            <h4 data-toc-skip class="date">2021-11-18</h4>
+            <h4 data-toc-skip class="date">2021-12-04</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/rOpenGov/retroharmonize/blob/HEAD/vignettes/arabbarometer.Rmd" class="external-link"><code>vignettes/arabbarometer.Rmd</code></a></small>
       <div class="d-none name"><code>arabbarometer.Rmd</code></div>
@@ -697,36 +701,27 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
 <span class="co">#&gt; [1] snakecase_0.11.0     knitr_1.36           ggplot2_3.3.5       </span>
-<span class="co">#&gt; [4] tidyr_1.1.4          dplyr_1.0.7          retroharmonize_0.2.2</span>
+<span class="co">#&gt; [4] tidyr_1.1.4          dplyr_1.0.7          retroharmonize_0.2.3</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;  [1] tidyselect_1.1.1         xfun_0.28                bslib_0.3.1             </span>
-<span class="co">#&gt;  [4] purrr_0.3.4              haven_2.4.3              labelled_2.9.0          </span>
-<span class="co">#&gt;  [7] colorspace_2.0-2         vctrs_0.3.8              generics_0.1.1          </span>
-<span class="co">#&gt; [10] htmltools_0.5.2          yaml_2.2.1               utf8_1.2.2              </span>
-<span class="co">#&gt; [13] rlang_0.4.12             pkgdown_1.9000.9000.9000 jquerylib_0.1.4         </span>
-<span class="co">#&gt; [16] pillar_1.6.4             glue_1.5.0               withr_2.4.2             </span>
-<span class="co">#&gt; [19] lifecycle_1.0.1          stringr_1.4.0            munsell_0.5.0           </span>
-<span class="co">#&gt; [22] gtable_0.3.0             ragg_1.2.0               memoise_2.0.0           </span>
-<span class="co">#&gt; [25] evaluate_0.14            forcats_0.5.1            fastmap_1.1.0           </span>
-<span class="co">#&gt; [28] fansi_0.5.0              highr_0.9                scales_1.1.1            </span>
-<span class="co">#&gt; [31] cachem_1.0.6             desc_1.4.0               jsonlite_1.7.2          </span>
-<span class="co">#&gt; [34] systemfonts_1.0.3        fs_1.5.0                 textshaping_0.3.6       </span>
-<span class="co">#&gt; [37] hms_1.1.1                png_0.1-7                digest_0.6.28           </span>
-<span class="co">#&gt; [40] stringi_1.7.5            rprojroot_2.0.2          grid_4.1.2              </span>
-<span class="co">#&gt; [43] cli_3.1.0                here_1.0.1               tools_4.1.2             </span>
-<span class="co">#&gt; [46] magrittr_2.0.1           sass_0.4.0               tibble_3.1.6            </span>
-<span class="co">#&gt; [49] crayon_1.4.2             pkgconfig_2.0.3          ellipsis_0.3.2          </span>
-<span class="co">#&gt; [52] assertthat_0.2.1         rmarkdown_2.11           R6_2.5.1                </span>
-<span class="co">#&gt; [55] compiler_4.1.2</span></code></pre></div>
+<span class="co">#&gt;  [1] tidyselect_1.1.1  xfun_0.28         bslib_0.3.1       purrr_0.3.4      </span>
+<span class="co">#&gt;  [5] haven_2.4.3       labelled_2.9.0    colorspace_2.0-2  vctrs_0.3.8      </span>
+<span class="co">#&gt;  [9] generics_0.1.1    htmltools_0.5.2   yaml_2.2.1        utf8_1.2.2       </span>
+<span class="co">#&gt; [13] rlang_0.4.12      pkgdown_2.0.0     jquerylib_0.1.4   pillar_1.6.4     </span>
+<span class="co">#&gt; [17] glue_1.5.1        withr_2.4.3       lifecycle_1.0.1   stringr_1.4.0    </span>
+<span class="co">#&gt; [21] munsell_0.5.0     gtable_0.3.0      ragg_1.2.0        memoise_2.0.1    </span>
+<span class="co">#&gt; [25] evaluate_0.14     forcats_0.5.1     fastmap_1.1.0     fansi_0.5.0      </span>
+<span class="co">#&gt; [29] highr_0.9         scales_1.1.1      cachem_1.0.6      desc_1.4.0       </span>
+<span class="co">#&gt; [33] jsonlite_1.7.2    systemfonts_1.0.3 fs_1.5.1          textshaping_0.3.6</span>
+<span class="co">#&gt; [37] hms_1.1.1         png_0.1-7         digest_0.6.29     stringi_1.7.6    </span>
+<span class="co">#&gt; [41] rprojroot_2.0.2   grid_4.1.2        cli_3.1.0         here_1.0.1       </span>
+<span class="co">#&gt; [45] tools_4.1.2       magrittr_2.0.1    sass_0.4.0        tibble_3.1.6     </span>
+<span class="co">#&gt; [49] crayon_1.4.2      pkgconfig_2.0.3   ellipsis_0.3.2    assertthat_0.2.1 </span>
+<span class="co">#&gt; [53] rmarkdown_2.11    R6_2.5.1          compiler_4.1.2</span></code></pre></div>
 </div>
 </div>
-  </div>
- <div class="col-md-3" id="pkgdown-sidebar">
-        <nav id="toc"><h2>On this page</h2>
-    </nav>
-</div>
-
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
@@ -738,7 +733,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.0.</p>
 </div>
 
     </footer>

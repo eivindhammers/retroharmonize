@@ -43,14 +43,16 @@
 <!-- rogtemplate style sheet --><link href="BS5/rogtemplate.css" rel="stylesheet">
 </head>
 <body>
-    <a href="#container" class="visually-hidden-focusable">Skip to contents</a>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
+    
     <a class="navbar-brand me-2" href="index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.3</small>
 
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -68,6 +70,7 @@
     <a class="dropdown-item" href="articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
     <a class="dropdown-item" href="articles/harmonize_labels.html">Harmonize Value Labels</a>
     <a class="dropdown-item" href="articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
+    <a class="dropdown-item" href="articles/survey_harmonization.html">Survey Harmonization</a>
   </div>
 </li>
 <li class="nav-item">
@@ -87,11 +90,12 @@
 </li>
       </ul>
 </div>
+
+    
   </div>
-</nav><div class="container template-home" id="container">
+</nav><div class="container template-home">
 <div class="row">
-  <div class="contents col-md-9">
-<div class="section level1">
+  <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
 <img src="logo.png" class="logo" alt=""><h1 id="retroharmonize-">retroharmonize 
 <a class="anchor" aria-label="anchor" href="#retroharmonize-"></a>
@@ -114,17 +118,30 @@
 <p>You can download the manual in PDF for the <a href="https://retroharmonize.dataobservatory.eu/retroharmonize_0.2.2.pdf" class="external-link">0.2.2 release</a>.</p>
 </div>
 <div class="section level2">
-<h2 id="retrospective-data-harmonization">Retrospective data harmonization<a class="anchor" aria-label="anchor" href="#retrospective-data-harmonization"></a>
+<h2 id="survey-harmonization">Survey harmonization<a class="anchor" aria-label="anchor" href="#survey-harmonization"></a>
 </h2>
-<p>Survey data harmonization refers to procedures that improve the data comparability or the inferential capacity of multiple surveys. <em>Ex-post</em> or retrospective harmonization refers to the procedures applied to data that is already collected, while <em>ex ante</em> harmonization refers to survey design that makes future retrospective harmonization easier or more complete. From a computational point of view, the tasks are very similar or identical. The <em>ex ante</em> harmonization refers to procedures followed before the primary data is collected in order to make later data harmonization easier or more complete.</p>
-<p>Our reproducible workflow aims to arrive to a single data frame that contains the observations joined from different surveys, with harmonized coding and labelling. Conceptually, we can work with two versions of two workflows. Sometimes it may be practical to alter the variable class and the label/code harmonization.</p>
+<p>Survey data harmonization refers to procedures that improve the data comparability or the inferential capacity of multiple surveys. The <em>retroharmonize</em> package support various data processing, documentation, file/type conversion aspects of various survey harmonization workflows.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Harmonization of concepts</strong>: Create a mental map of the measured concepts that needs to be harmonized, for example, a binary sex variable with missing cases and a four-level categorical variable on gender identification that has <em>other</em> and <em>declined</em> options.</li>
+<li>
+<strong>Variable names</strong>: Make sure that <code>survey_1$sex</code> and <code>survey_2$gender</code> can be concatenated to a gender vector or <code>survey_joined$gender</code>.</li>
+<li>
+<strong>Variable coding and labels</strong>: Female=0 in <code>survey_1$sex</code> and female=2 in <code>survey_2$gender</code> becomes consistently female=0. Missing and <em>declined</em> values are consistently handled.</li>
+<li>
+<strong>Variable types</strong>: to use R’s statistical functions with the concatenated version of <code>survey_1$sex</code> and <code>survey_2$gender</code> they must have the same R type. In the vast majority of the cases either <em>numeric</em> or <em>factor</em>, and in data visualization applications sometimes <em>character</em>.<br>
+</li>
+<li>
+<strong>Reproducibility</strong>: To review statistics derived from the concatenated variable (or the joined data frame), they must remain comparable with <code>survey_1$sex</code> and <code>survey_2$gender</code>. It is also necessary to have a new, unique row ID for each observation. If you want to make your work available outside R, in a different software, the joined, longitudional data frame must be exported in a consistent manner.</li>
+</ol>
+<p>For an extended overview of these problems with illustrations please refer to the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/survey_harmonization" class="external-link">Survey Harmonization</a>.</p>
+<p>Researchers may have different preferred workflows, for example:</p>
 <ol style="list-style-type: decimal">
 <li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize variable names -&gt; Harmonize variable classes -&gt; Harmonize labels and codes -&gt; Join data</p></li>
 <li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize variable names -&gt; Harmonize labels and codes - &gt; Harmonize variable classes -&gt; Join data</p></li>
 <li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize labels and codes -&gt; Harmonize variable classes -&gt; Harmonize names -&gt; Join data</p></li>
 </ol>
-<p>If you are planning to analyze the data in R, you are likely to want to have all the data in numeric or factor classes, because these are the variable types that are supported by many statistical functions in many packages. If you prefer to use a different analytical software, the joined, longitudional data frame must be exported in a consistent manner.</p>
-<p>The first workflow is relatively easy to implement when the number of variables to be harmonized is relatively low.</p>
+<p>Our package has different utilities for different workflows.</p>
 </div>
 <div class="section level2">
 <h2 id="working-with-spss-files">Working with SPSS files<a class="anchor" aria-label="anchor" href="#working-with-spss-files"></a>
@@ -192,10 +209,7 @@
 </div>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3" id="pkgdown-sidebar">
-<div class="links">
+  </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=retroharmonize" class="external-link">View on CRAN</a></li>
@@ -215,6 +229,13 @@
 <h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+</ul>
+</div>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing retroharmonize</a></li>
 </ul>
 </div>
 
@@ -244,7 +265,7 @@
 </ul>
 </div>
 
-  </div>
+  </aside>
 </div>
 
 
@@ -255,7 +276,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.0.</p>
 </div>
 
     </footer>

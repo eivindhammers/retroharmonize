@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -137,14 +137,11 @@ The function is currently called <code>harmonize_waves</code>.</p>
 <span class="r-in"><span class="va">to_harmonize</span> <span class="op">&lt;-</span> <span class="va">metadata</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span> <span class="op">(</span> <span class="va">var_name_orig</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> </span>
 <span class="r-in">             <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rowid"</span>, <span class="st">"w1"</span><span class="op">)</span> <span class="op">|</span></span>
-<span class="r-in">             <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"^trust"</span>, <span class="va">label_orig</span> <span class="op">)</span> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> var_label <span class="op">=</span> <span class="fu"><a href="label_normalize.html">var_label_normalize</a></span><span class="op">(</span><span class="va">label_orig</span><span class="op">)</span> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> var_name_target <span class="op">=</span> <span class="fu"><a href="label_normalize.html">val_label_normalize</a></span><span class="op">(</span><span class="va">var_label</span><span class="op">)</span> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">             <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"^trust"</span>, <span class="va">var_label_orig</span> <span class="op">)</span> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> var_label <span class="op">=</span> <span class="fu"><a href="label_normalize.html">var_label_normalize</a></span><span class="op">(</span><span class="va">var_label_orig</span><span class="op">)</span> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> var_name_target <span class="op">=</span> <span class="fu"><a href="label_normalize.html">val_label_normalize</a></span><span class="op">(</span><span class="va">var_label_orig</span><span class="op">)</span> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> var_name_target <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">var_name_orig</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rowid"</span>, <span class="st">"w1"</span>, <span class="st">"wex"</span><span class="op">)</span>, </span>
 <span class="r-in">                                    <span class="va">.data</span><span class="op">$</span><span class="va">var_name_orig</span>, <span class="va">.data</span><span class="op">$</span><span class="va">var_name_target</span><span class="op">)</span> <span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Problem with `filter()` input `..1`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">ℹ</span> Input `..1` is `var_name_orig %in% c("rowid", "w1") | grepl("^trust", label_orig)`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> object 'label_orig' not found</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">harmonize_eb_trust</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in">  <span class="va">label_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
@@ -164,12 +161,11 @@ The function is currently called <code>harmonize_waves</code>.</p>
 <span class="r-in"><span class="op">}</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">merged_surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="merge_surveys.html">merge_surveys</a></span> <span class="op">(</span> <span class="va">example_surveys</span>, var_harmonization <span class="op">=</span> <span class="va">to_harmonize</span>  <span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in c("filename", "var_name_orig", "var_name_target", "var_label") %in%     names(var_harmonization):</span> object 'to_harmonize' not found</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">harmonized</span> <span class="op">&lt;-</span> <span class="fu">harmonize_survey_values</span><span class="op">(</span>survey_list <span class="op">=</span> <span class="va">merged_surveys</span>, </span>
 <span class="r-in">                              .f <span class="op">=</span> <span class="va">harmonize_eb_trust</span>,</span>
 <span class="r-in">                              status_message <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(assertion, env):</span> object 'merged_surveys' not found</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in harmonize_survey_values(x, harmonize_labels = label_list, na_values = c(do_not_know = 99997,     declined = 99998, inap = 99999)):</span> unused arguments (harmonize_labels = label_list, na_values = c(do_not_know = 99997, declined = 99998, inap = 99999))</span>
 <span class="r-in">                              </span>
 <span class="r-in"><span class="co"># For details see Afrobarometer and Eurobarometer Case Study vignettes.</span></span>
 <span class="r-in"><span class="co"># }</span></span>

@@ -12,7 +12,7 @@ by removing variables that are not harmonized."><meta property="og:image" conten
     
     <a class="navbar-brand me-2" href="../index.html">retroharmonize</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +96,7 @@ by removing variables that are not harmonized.</p>
   export_path <span class="op">=</span> <span class="cn">NULL</span>
 <span class="op">)</span>
 
-<span class="fu">subset_waves</span><span class="op">(</span><span class="va">waves</span>, subset_names <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+<span class="fu">subset_waves</span><span class="op">(</span><span class="va">waves</span>, subset_vars <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -114,6 +114,12 @@ by removing variables that are not harmonized.</p>
 <dt>subset_vars</dt>
 <dd><p>The names of the variables that should be kept from all surveys in the list that contains the
 wave of surveys. Defaults to <code>NULL</code> in which case it returns all variables without subsetting.</p></dd>
+<dt>crosswalk_table</dt>
+<dd><p>A crosswalk table created by <code><a href="crosswalk_table_create.html">crosswalk_table_create</a></code> or a manually created 
+crosstable including at least
+<code>filename</code>, <code>var_name_orig</code>, <code>var_name_target</code> and optionally 
+ <code>var_label_orig</code> and <code>var_label_target</code>. This parameter is optional and 
+ defaults to <code>NULL</code>.</p></dd>
 <dt>import_path</dt>
 <dd><p>The path to the survey files. Defaults to <code>NULL</code>.</p></dd>
 <dt>export_path</dt>
@@ -121,12 +127,6 @@ wave of surveys. Defaults to <code>NULL</code> in which case it returns all vari
 the surveys are not saved but returned as a list.</p></dd>
 <dt>waves</dt>
 <dd><p>A list of surveys imported with <code><a href="read_surveys.html">read_surveys</a></code>.</p></dd>
-<dt>crosstable</dt>
-<dd><p>A crosstable created by <code>crosstable_create</code> or a manually created 
-crosstable including at least
-<code>filename</code>, <code>var_name_orig</code>, <code>var_name_target</code> and optionally 
- <code>var_label_orig</code> and <code>var_label_target</code>. This parameter is optional and 
- defaults to <code>NULL</code>.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>

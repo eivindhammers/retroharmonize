@@ -136,7 +136,7 @@
 <h2 id="tasks-in-the-harmonization-workflow">Tasks in the harmonization workflow<a class="anchor" aria-label="anchor" href="#tasks-in-the-harmonization-workflow"></a>
 </h2>
 <p>The ordering of the survey harmonization workflow is flexible, and it is likely that even the same researcher would choose a different workflow in the case of smaller, simpler harmonization tasks and more complex harmonization tasks.</p>
-<p>The data science aspect of a successful survey harmonization task is the creation of a consistent data frame that contains harmonized information from multiple surveys. It practically means that questionnaire items are mapped into variables with a consistent numerical coding, descriptive metadata (variable and value labels) and a consistent handling of missing and special values. In practice, this is a very laborous taks, when surveys are conducted in different years, saved in different file formats with a different metadata structure, missing and special values are handled differently, and the metadata contains potentially different natural language descriptions or spelling.</p>
+<p>The data science aspect of a successful survey harmonization task is the creation of a consistent data frame that contains harmonized information from multiple surveys. It practically means that questionnaire items are mapped into variables with a consistent numerical coding, descriptive metadata (variable and value labels) and a consistent handling of missing and special values. In practice, this is a very laborous tasks, when surveys are conducted in different years, saved in different file formats with a different metadata structure, missing and special values are handled differently, and the metadata contains potentially different natural language descriptions or spelling.</p>
 <p>Survey 1 labels the sex of respondents as Male and Female, and has cases that are neither Male or Female, but we do not know why.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">survey_2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
@@ -148,7 +148,7 @@
 <span class="co">#&gt; 3      9              9      declined</span>
 <span class="co">#&gt; 4      1              1          male</span>
 <span class="co">#&gt; 5      2              2        female</span></code></pre></div>
-<p>Survey 2 records gender, which contains the same information as sex in Survey 1 (Male and Female), but allows people to identify as Other, and labels cases when people decline to identify with any of these thre categories.</p>
+<p>Survey 2 records gender, which contains the same information as sex in Survey 1 (Male and Female), but allows people to identify as Other, and labels cases when people decline to identify with any of these three categories.</p>
 <p>In practice, you want to end up with the following joined representation of your survey:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">survey_joined</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>
@@ -187,7 +187,7 @@
 </li>
 <li>Variable coding and labels
 <ul>
-<li>Variables recording or measuring the same concept, such as the gender of the respondent, are coded exactly the same way, for example, females with 0, males with 1, non-binary respondants with 3, and people declining to reveal their gender with 9. This means that observations in <code>survey_2$gender</code> coded with a numeric 2 must be changed to a numeric 0.</li>
+<li>Variables recording or measuring the same concept, such as the gender of the respondent, are coded exactly the same way, for example, females with 0, males with 1, non-binary respondents with 3, and people declining to reveal their gender with 9. This means that observations in <code>survey_2$gender</code> coded with a numeric 2 must be changed to a numeric 0.</li>
 <li>Variable labels are used consistently and in exactly the same way, i.e. <code>survey_1$sex</code> <em>Female</em> respondents and <code>survey_2$gender</code> <em>female</em> respondents will be consistently labelled as <em>female</em>.</li>
 </ul>
 </li>
@@ -257,7 +257,7 @@
 <span class="co">#&gt;  3rd Qu.:2.25   3rd Qu.:2.000   3rd Qu.:2.25   other   :1    </span>
 <span class="co">#&gt;  Max.   :9.00   Max.   :2.000   Max.   :9.00   declined:1    </span>
 <span class="co">#&gt;  NA's   :1                      NA's   :1      NA's    :1</span></code></pre></div>
-<p>The variable labels must be harmonized for a succesful factor representation. The numerical coding must be harmonized, and the missing cases must be consistently handled to acheive any useful numerical representation.</p>
+<p>The variable labels must be harmonized for a successful factor representation. The numerical coding must be harmonized, and the missing cases must be consistently handled to acheive any useful numerical representation.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">survey_joined</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"survey_"</span>, <span class="va">.data</span><span class="op">$</span><span class="va">survey</span>, <span class="st">"_"</span>, <span class="va">.data</span><span class="op">$</span><span class="va">id</span><span class="op">)</span>,

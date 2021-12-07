@@ -4,11 +4,13 @@ pkgdown_sha: ~
 articles:
   afrobarometer: afrobarometer.html
   arabbarometer: arabbarometer.html
+  crosswalk: crosswalk.html
   eurobarometer: eurobarometer.html
   harmonize_labels: harmonize_labels.html
   labelled_spss_survey: labelled_spss_survey.html
+  metadata: metadata.html
   survey_harmonization: survey_harmonization.html
-last_built: 2021-12-06T09:20Z
+last_built: 2021-12-07T15:31Z
 urls:
   reference: https://ropengov.github.io/retroharmonize/reference
   article: https://ropengov.github.io/retroharmonize/articles

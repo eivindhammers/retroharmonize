@@ -26,9 +26,11 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
     <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
+    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
     <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
     <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
     <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
+    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
     <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
   </div>
 </li>
@@ -106,10 +108,11 @@ the value labels, the numeric codes, and the special missing labels, too.</p>
 <code><a href="collect_val_labels.html">collect_val_labels</a>()</code>,
 <code><a href="crosswalk_table_create.html">crosswalk_table_create</a>()</code>,
 <code><a href="harmonize_na_values.html">harmonize_na_values</a>()</code>,
-<code><a href="harmonize_surveys.html">harmonize_surveys</a>()</code>,
+<code><a href="harmonize_survey_values.html">harmonize_survey_values</a>()</code>,
 <code><a href="harmonize_values.html">harmonize_values</a>()</code>,
 <code><a href="harmonize_var_names.html">harmonize_var_names</a>()</code>,
 <code><a href="label_normalize.html">label_normalize</a>()</code>,
+<code><a href="subset_surveys.html">subset_surveys</a>()</code>,
 <code><a href="suggest_permanent_names.html">suggest_permanent_names</a>()</code>,
 <code><a href="suggest_var_names.html">suggest_var_names</a>()</code></p></div>
     </div>
@@ -129,21 +132,21 @@ the value labels, the numeric codes, and the special missing labels, too.</p>
 <span class="r-in"><span class="va">documented_surveys</span><span class="op">$</span><span class="va">var_name_orig</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="st">"rowid"</span>, <span class="st">"isocntry"</span>, <span class="st">"w1"</span>, <span class="st">"qd3_4"</span>,</span>
 <span class="r-in">                                          <span class="st">"qd3_8"</span> , <span class="st">"qd7.4"</span>, <span class="st">"qd7.8"</span>, <span class="st">"qd6.4"</span>, <span class="st">"qd6.8"</span><span class="op">)</span>,</span>
 <span class="r-in">                                          <span class="op">]</span></span>
-<span class="r-in"><span class="va">crosswalk_table</span>    <span class="op">&lt;-</span> <span class="fu"><a href="crosswalk_table_create.html">crosswalk_table_create</a></span> <span class="op">(</span> metadata <span class="op">=</span> <span class="va">documented_surveys</span> <span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target", "class_orig", "class_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target", "class_orig", "class_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target", "class_orig", "class_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target", "class_orig", "class_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target", "class_orig", "class_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_numeric_target", "na_label_target")</span>
+<span class="r-in"><span class="va">crosswalk_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="crosswalk_table_create.html">crosswalk_table_create</a></span> <span class="op">(</span> metadata <span class="op">=</span> <span class="va">documented_surveys</span> <span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_label_orig", "na_label_target", "na_numeric_orig", "na_numeric_target", "var_label_orig", "var_label_target", "class_orig", "class_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_label_orig", "na_label_target", "na_numeric_orig", "na_numeric_target", "var_label_orig", "var_label_target", "class_orig", "class_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_label_orig", "na_label_target", "na_numeric_orig", "na_numeric_target", "var_label_orig", "var_label_target", "class_orig", "class_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_label_orig", "na_label_target", "na_numeric_orig", "na_numeric_target", "var_label_orig", "var_label_target", "class_orig", "class_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target", "na_label_orig", "na_label_target", "na_numeric_orig", "na_numeric_target", "var_label_orig", "var_label_target", "class_orig", "class_target")</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

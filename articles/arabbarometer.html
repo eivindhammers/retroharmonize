@@ -57,9 +57,11 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
     <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
+    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
     <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
     <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
     <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
+    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
     <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
   </div>
 </li>
@@ -91,7 +93,7 @@
                         <h4 data-toc-skip class="author">Yousef Ibrahim</h4>
                         <h4 data-toc-skip class="author">Ahmed Shaibani</h4>
             
-            <h4 data-toc-skip class="date">2021-12-06</h4>
+            <h4 data-toc-skip class="date">2021-12-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/rOpenGov/retroharmonize/blob/HEAD/vignettes/arabbarometer.Rmd" class="external-link"><code>vignettes/arabbarometer.Rmd</code></a></small>
       <div class="d-none name"><code>arabbarometer.Rmd</code></div>
@@ -385,10 +387,29 @@
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/collect_val_labels.html">collect_val_labels</a></span><span class="op">(</span>
   <span class="va">to_harmonize_elections</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"evaluation in the last parliamentary elections"</span>, 
+     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"evaluation_in_the_last_parliamentary_elections"</span>, 
                   <span class="va">.data</span><span class="op">$</span><span class="va">var_name</span><span class="op">)</span><span class="op">)</span>
   <span class="op">)</span>
-<span class="co">#&gt; character(0)</span></code></pre></div>
+<span class="co">#&gt;  [1] "0. missing"                                          </span>
+<span class="co">#&gt;  [2] "1. they were completely free and fair"               </span>
+<span class="co">#&gt;  [3] "2. they were free and fair, with some minor problems"</span>
+<span class="co">#&gt;  [4] "3. they were free and fair, with some major problems"</span>
+<span class="co">#&gt;  [5] "4. they were not free and fair"                      </span>
+<span class="co">#&gt;  [6] "8. i don't know"                                     </span>
+<span class="co">#&gt;  [7] "9. declined to answer"                               </span>
+<span class="co">#&gt;  [8] "Missing"                                             </span>
+<span class="co">#&gt;  [9] "They were completely free and fair"                  </span>
+<span class="co">#&gt; [10] "They were free and fair, with some minor breaches"   </span>
+<span class="co">#&gt; [11] "They were free and fair, with some major breaches"   </span>
+<span class="co">#&gt; [12] "They were not free and fair"                         </span>
+<span class="co">#&gt; [13] "Don't know"                                          </span>
+<span class="co">#&gt; [14] "Refuse"                                              </span>
+<span class="co">#&gt; [15] "Completely free and fair"                            </span>
+<span class="co">#&gt; [16] "Free and fair, but with minor problems"              </span>
+<span class="co">#&gt; [17] "Free and fair, with major problems"                  </span>
+<span class="co">#&gt; [18] "Not free or fair"                                    </span>
+<span class="co">#&gt; [19] "Don't know (Do not read)"                            </span>
+<span class="co">#&gt; [20] "Decline to answer (Do not read)"</span></code></pre></div>
 <p>For example, <code>Refuse</code> and <code>Decline to answer (Do not read)</code> are categories when the interviewee refused to form an opinion. This is a different case from <code>Missing</code>: in Saudi Arabia, there were not parliamentary elections, therefore the question was not asked from interviewees in this country.</p>
 <p>The question of interest <code>How would you evaluate the last parliamentary election?</code> is described as a closed form survey questions where answers are predetermined and the respondents chose one of the answer options. This question has four-point ordinal scales, therefore, data is best to analyzed in an ordinal representation that does not assume equidistant values (i.e., as factors.)</p>
 <p>We created the following retrospective labelling and coding:</p>
@@ -425,7 +446,7 @@
 <span class="op">}</span></code></pre></div>
 <p>The problem is that the numeric codes are not only used for the evaluation question, but also for country names. Beware not to apply the election evaluation code table to the country names!</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">harmonized_evaluations</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_surveys.html">harmonize_surveys</a></span><span class="op">(</span> 
+<code class="sourceCode R"><span class="va">harmonized_evaluations</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_survey_values.html">harmonize_survey_values</a></span><span class="op">(</span> 
   survey_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> <span class="va">ab_elections</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
                      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span> <span class="op">(</span><span class="op">-</span><span class="va">.data</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span>, 
   .f <span class="op">=</span><span class="va">harmonize_arabb_eval</span> <span class="op">)</span></code></pre></div>

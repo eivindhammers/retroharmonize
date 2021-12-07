@@ -57,9 +57,11 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
     <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
+    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
     <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
     <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
     <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
+    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
     <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
   </div>
 </li>
@@ -320,9 +322,9 @@ Round 7: <code>r7_merged_data_34ctry.release.sav</code></p>
                   <span class="st">"inap"</span><span class="op">=</span><span class="fl">99999</span><span class="op">)</span>
   <span class="op">)</span>
 <span class="op">}</span></code></pre></div>
-<p>We apply this function to the trust variables. The <code><a href="../reference/harmonize_surveys.html">harmonize_surveys()</a></code> function binds all variables that are present in all surveys.</p>
+<p>We apply this function to the trust variables. The <code>harmonize_surveys()</code> function binds all variables that are present in all surveys.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">harmonized_ab_waves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_surveys.html">harmonize_surveys</a></span> <span class="op">(</span> 
+<code class="sourceCode R"><span class="va">harmonized_ab_waves</span> <span class="op">&lt;-</span> <span class="fu">harmonize_surveys</span> <span class="op">(</span> 
   survey_list <span class="op">=</span> <span class="va">merged_ab</span>, 
   .f <span class="op">=</span> <span class="va">harmonize_ab_trust</span> <span class="op">)</span> </code></pre></div>
 <p>Let’s look at the attributes of <code>harmonized_ab_waves</code>.</p>

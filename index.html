@@ -67,9 +67,11 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
     <a class="dropdown-item" href="articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
+    <a class="dropdown-item" href="articles/crosswalk.html">Working With A Crosswalk Table</a>
     <a class="dropdown-item" href="articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
     <a class="dropdown-item" href="articles/harmonize_labels.html">Harmonize Value Labels</a>
     <a class="dropdown-item" href="articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
+    <a class="dropdown-item" href="articles/metadata.html">Working With Survey Metadata</a>
     <a class="dropdown-item" href="articles/survey_harmonization.html">Survey Harmonization</a>
   </div>
 </li>
@@ -115,22 +117,22 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rOpenGov/retroharmonize"</span><span class="op">)</span></code></pre></div>
-<p>You can download the manual in PDF for the <a href="https://retroharmonize.dataobservatory.eu/retroharmonize_0.2.2.pdf" class="external-link">0.2.2 release</a>.</p>
+<p>You can download the manual in PDF for the <a href="https://retroharmonize.dataobservatory.eu/retroharmonize_0.2.3.pdf" class="external-link">0.2.3 release</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="survey-harmonization">Survey harmonization<a class="anchor" aria-label="anchor" href="#survey-harmonization"></a>
 </h2>
 <p>Survey data harmonization refers to procedures that improve the data comparability or the inferential capacity of multiple surveys. The <em>retroharmonize</em> package support various data processing, documentation, file/type conversion aspects of various survey harmonization workflows.</p>
+<p>From a technical perspecitve, the aim of the survey harmonization is to create a single, tidy, joined table in the form of a data frame that contains a row identifier, which is truly unique across all observations and the concatenated and harmonized variables.</p>
 <ol style="list-style-type: decimal">
 <li>
-<strong>Harmonization of concepts</strong>: Create a mental map of the measured concepts that needs to be harmonized, for example, a binary sex variable with missing cases and a four-level categorical variable on gender identification that has <em>other</em> and <em>declined</em> options.</li>
+<strong>Harmonization of concepts</strong>: Create a mental map of the measured concepts that needs to be harmonized, for example, a binary sex variable with missing cases and a four-level categorical variable on gender identification that has <em>other</em> and <em>declined</em> options. See the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/survey_harmonization" class="external-link">Working With Survey Metadata</a> how mapping the metadata of the surveys can help getting started with this first step.</li>
 <li>
-<strong>Variable names</strong>: Make sure that <code>survey_1$sex</code> and <code>survey_2$gender</code> can be concatenated to a gender vector or <code>survey_joined$gender</code>.</li>
+<strong>Variable names</strong>: Make sure that <code>survey_1$sex</code> and <code>survey_2$gender</code> can be concatenated to a gender vector or <code>survey_joined$gender</code>. See more in the <a href="https://retroharmonize.dataobservatory.eu/articles/crosswalk.html" class="external-link">Working With A Crosswalk Table</a>.</li>
 <li>
 <strong>Variable coding and labels</strong>: Female=0 in <code>survey_1$sex</code> and female=2 in <code>survey_2$gender</code> becomes consistently female=0. Missing and <em>declined</em> values are consistently handled.</li>
 <li>
-<strong>Variable types</strong>: to use R’s statistical functions with the concatenated version of <code>survey_1$sex</code> and <code>survey_2$gender</code> they must have the same R type. In the vast majority of the cases either <em>numeric</em> or <em>factor</em>, and in data visualization applications sometimes <em>character</em>.<br>
-</li>
+<strong>Variable types</strong>: to use R’s statistical functions with the concatenated version of <code>survey_1$sex</code> and <code>survey_2$gender</code> they must have the same R type. In the vast majority of the cases either <em>numeric</em> or <em>factor</em>, and in data visualization applications sometimes <em>character</em>. See more in the <a href="https://retroharmonize.dataobservatory.eu/articles/harmonize_labels.html" class="external-link">Harmonize Value Labels</a> vignette.</li>
 <li>
 <strong>Reproducibility</strong>: To review statistics derived from the concatenated variable (or the joined data frame), they must remain comparable with <code>survey_1$sex</code> and <code>survey_2$gender</code>. It is also necessary to have a new, unique row ID for each observation. If you want to make your work available outside R, in a different software, the joined, longitudional data frame must be exported in a consistent manner.</li>
 </ol>
@@ -254,7 +256,7 @@
 <li><a href="https://cran.r-project.org/package=retroharmonize" class="external-link"><img src="https://www.r-pkg.org/badges/version/retroharmonize" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://cran.r-project.org/package=retroharmonize" class="external-link"><img src="https://www.r-pkg.org/badges/ago/retroharmonize" alt="CRAN_time_from_release"></a></li>
 <li><a href="https://cran.r-project.org/package=retroharmonize" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/retroharmonize" alt="metacran downloads"></a></li>
-<li><a href="https://doi.org/10.5281/10.5281/zenodo.5710064" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5710064.svg" alt="DOI"></a></li>
+<li><a href="https://doi.org/10.5281/zenodo.5764361" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5764361.svg" alt="DOI"></a></li>
 <li><a href="https://app.codecov.io/gh/ropengov/retroharmonize" class="external-link"><img src="https://codecov.io/gh/ropengov/retroharmonize/branch/master/graph/badge.svg?token=ShTTeqB5kL" alt="codecov"></a></li>
 <li><a href="https://github.com/rOpenGov/retroharmonize/actions" class="external-link"><img src="https://github.com/rOpenGov/retroharmonize/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://twitter.com/intent/follow?screen_name=antaldaniel" class="external-link"><img src="https://img.shields.io/twitter/follow/antaldaniel.svg?style=social" alt="Follow author"></a></li>

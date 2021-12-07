@@ -57,9 +57,11 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
     <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
+    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
     <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
     <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
     <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
+    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
     <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
   </div>
 </li>
@@ -179,7 +181,7 @@
 <span class="co">## to have a directory where you have already downloaded the data</span>
 <span class="co">## from GESIS after accepting their term use.</span>
 
-<span class="fu"><a href="../reference/subset_save_surveys.html">subset_save_surveys</a></span> <span class="op">(</span> 
+<span class="fu"><a href="../reference/subset_surveys.html">subset_save_surveys</a></span> <span class="op">(</span> 
   var_harmonization <span class="op">=</span> <span class="va">selected_eb_metadata</span>, 
   selection_name <span class="op">=</span> <span class="st">"trust"</span>,
   import_path <span class="op">=</span> <span class="va">gesis_dir</span>, 
@@ -297,7 +299,7 @@
                                  <span class="st">"MT"</span>, <span class="st">"IT"</span><span class="op">)</span><span class="op">)</span><span class="op">}</span>
 <span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">harmonized_eb_waves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/harmonize_surveys.html">harmonize_surveys</a></span> <span class="op">(</span> 
+<code class="sourceCode R"><span class="va">harmonized_eb_waves</span> <span class="op">&lt;-</span> <span class="fu">harmonize_surveys</span> <span class="op">(</span> 
   survey_list <span class="op">=</span> <span class="va">eb_waves_selected</span>, 
   .f <span class="op">=</span> <span class="va">harmonize_eb_trust</span> <span class="op">)</span></code></pre></div>
 <p>We cannot rely on <code><a href="../reference/document_surveys.html">document_surveys()</a></code> anymore, because the result is a single data frame. Let’s have a look at the descriptive metadata.</p>

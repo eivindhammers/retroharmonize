@@ -36,9 +36,11 @@ comprehensive S3 classes."><meta property="og:image" content="https://ropengov.g
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
     <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
+    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
     <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
     <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
     <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
+    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
     <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
   </div>
 </li>
@@ -84,7 +86,7 @@ comprehensive S3 classes.</p>
     
 
 <p>Read data stored in formats with rich metadata, such as SPSS (.sav) files, 
-and make them usable in a programmatic context.<br><code><a href="read_spss.html">read_spss</a></code>: read an SPSS file and record metadata for reproducibility<br><code><a href="read_rds.html">read_rds</a></code>: read an rds file and record metadata for reproducibility<br><code><a href="read_surveys.html">read_surveys</a></code>: programmatically read a list of surveys<br><code><a href="subset_save_surveys.html">subset_save_surveys</a></code>: programmatically read a list of surveys, 
+and make them usable in a programmatic context.<br><code><a href="read_spss.html">read_spss</a></code>: read an SPSS file and record metadata for reproducibility<br><code><a href="read_rds.html">read_rds</a></code>: read an rds file and record metadata for reproducibility<br><code><a href="read_surveys.html">read_surveys</a></code>: programmatically read a list of surveys<br><code><a href="subset_surveys.html">subset_save_surveys</a></code>: programmatically read a list of surveys, 
 and subset them (pre-harmonize the same variables.)<br><code><a href="pull_survey.html">pull_survey</a></code>: pull a single survey from a survey list.<br></p>
     </div>
     <div class="section level2">
@@ -99,14 +101,14 @@ and variable names.<br><code><a href="suggest_permanent_names.html">suggest_perm
     <h2 id="variable-label-harmonization-functions">variable label harmonization functions<a class="anchor" aria-label="anchor" href="#variable-label-harmonization-functions"></a></h2>
     
 
-<p>Create consistent coding and labelling.<br><code><a href="harmonize_values.html">harmonize_values</a></code>: Harmonize the label list across surveys.<br><code><a href="harmonize_surveys.html">harmonize_surveys</a></code>: Create a list of surveys with harmonized value labels.<br><code><a href="na_range_to_values.html">na_range_to_values</a></code>: Make the <code>na_range</code> attributes,
+<p>Create consistent coding and labelling.<br><code><a href="harmonize_values.html">harmonize_values</a></code>: Harmonize the label list across surveys.<br><code><a href="harmonize_survey_values.html">harmonize_survey_values</a></code>: Create a list of surveys with harmonized value labels.<br><code><a href="subset_surveys.html">harmonize_survey_variables</a></code>: Create a list of surveys with harmonized variable names.<br><code><a href="na_range_to_values.html">na_range_to_values</a></code>: Make the <code>na_range</code> attributes,
 as imported from SPSS, consistent with the <code>na_values</code> attributes.<br></p>
     </div>
     <div class="section level2">
     <h2 id="survey-harmonization-functions">survey harmonization functions<a class="anchor" aria-label="anchor" href="#survey-harmonization-functions"></a></h2>
     
 
-<p><code><a href="merge_surveys.html">merge_surveys</a></code>: Create a list of surveys with harmonized names and variable labels.<br><code><a href="harmonize_surveys.html">harmonize_surveys</a></code>: Create a list of surveys with harmonized value labels.<br><code><a href="crosswalk_surveys.html">crosswalk_surveys</a></code>: Create a list of surveys with harmonized variable names, harmonized 
+<p><code><a href="merge_surveys.html">merge_surveys</a></code>: Create a list of surveys with harmonized names and variable labels.<br><code><a href="crosswalk_surveys.html">crosswalk_surveys</a></code>: Create a list of surveys with harmonized variable names, harmonized 
 value labels and harmonize R classes.<br><code><a href="crosswalk_surveys.html">crosswalk</a></code>: Create a joined data frame of surveys with harmonized variable names, harmonized 
 value labels and harmonize R classes.<br></p>
     </div>

@@ -13,6 +13,9 @@
     <loc>https://ropengov.github.io/retroharmonize/articles/arabbarometer.html</loc>
   </url>
   <url>
+    <loc>https://ropengov.github.io/retroharmonize/articles/crosswalk.html</loc>
+  </url>
+  <url>
     <loc>https://ropengov.github.io/retroharmonize/articles/eurobarometer.html</loc>
   </url>
   <url>
@@ -23,6 +26,9 @@
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/articles/labelled_spss_survey.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/articles/metadata.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/articles/survey_harmonization.html</loc>
@@ -70,7 +76,7 @@
     <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_na_values.html</loc>
   </url>
   <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_surveys.html</loc>
+    <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_survey_values.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_values.html</loc>
@@ -122,9 +128,6 @@
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/retroharmonize.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/subset_save_surveys.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/subset_surveys.html</loc>

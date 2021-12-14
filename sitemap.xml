@@ -13,7 +13,13 @@
     <loc>https://ropengov.github.io/retroharmonize/articles/arabbarometer.html</loc>
   </url>
   <url>
+    <loc>https://ropengov.github.io/retroharmonize/articles/cap.html</loc>
+  </url>
+  <url>
     <loc>https://ropengov.github.io/retroharmonize/articles/crosswalk.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/articles/documentation.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/articles/eurobarometer.html</loc>
@@ -23,6 +29,9 @@
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/articles/intro.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/articles/labelled_spss_survey.html</loc>
@@ -73,10 +82,16 @@
     <loc>https://ropengov.github.io/retroharmonize/reference/document_surveys.html</loc>
   </url>
   <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/find_import_function.html</loc>
+  </url>
+  <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_na_values.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_survey_values.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_survey_variables.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/harmonize_values.html</loc>
@@ -106,6 +121,9 @@
     <loc>https://ropengov.github.io/retroharmonize/reference/metadata_initialize.html</loc>
   </url>
   <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/metadata_survey_create.html</loc>
+  </url>
+  <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/na_range_to_values.html</loc>
   </url>
   <url>
@@ -113,6 +131,12 @@
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/pull_survey.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/read.csv.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/read_csv.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/read_dta.html</loc>
@@ -130,13 +154,13 @@
     <loc>https://ropengov.github.io/retroharmonize/reference/retroharmonize.html</loc>
   </url>
   <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/subset_survey_file.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/retroharmonize/reference/subset_survey_memory.html</loc>
+  </url>
+  <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/subset_surveys.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/suggest_permanent_names.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/retroharmonize/reference/suggest_var_names.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/retroharmonize/reference/survey.html</loc>

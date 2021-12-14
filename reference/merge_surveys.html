@@ -23,18 +23,8 @@ variable labels and survey identifiers."><meta property="og:image" content="http
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -105,8 +95,10 @@ which reflects the vocabulary of Eurobarometer surveys.</p>
 <span class="r-in"><span class="va">example_surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_surveys.html">read_surveys</a></span><span class="op">(</span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">examples_dir</span>, <span class="va">survey_list</span><span class="op">)</span>, </span>
 <span class="r-in">  save_to_rds <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in read_surveys(file.path(examples_dir, survey_list), save_to_rds = FALSE):</span> unused argument (save_to_rds = FALSE)</span>
 <span class="r-in">    </span>
-<span class="r-in"><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="metadata_create.html">metadata_surveys_create</a></span><span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu">metadata_surveys_create</span><span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in metadata_surveys_create(example_surveys):</span> could not find function "metadata_surveys_create"</span>
 <span class="r-in"> </span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span class="r-in"></span>
@@ -118,12 +110,10 @@ which reflects the vocabulary of Eurobarometer surveys.</p>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> var_name_target <span class="op">=</span> <span class="fu"><a href="label_normalize.html">val_label_normalize</a></span><span class="op">(</span><span class="va">var_label</span><span class="op">)</span> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span> <span class="op">(</span> var_name_target <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">var_name_orig</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rowid"</span>, <span class="st">"w1"</span>, <span class="st">"wex"</span><span class="op">)</span>, </span>
 <span class="r-in">                                    <span class="va">.data</span><span class="op">$</span><span class="va">var_name_orig</span>, <span class="va">.data</span><span class="op">$</span><span class="va">var_name_target</span><span class="op">)</span> <span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Problem with `filter()` input `..1`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">ℹ</span> Input `..1` is `var_name_orig %in% c("rowid", "w1") | grepl("^trust", label_orig)`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> object 'label_orig' not found</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in filter(., var_name_orig %in% c("rowid", "w1") | grepl("^trust",     label_orig)):</span> object 'metadata' not found</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">merge_surveys</span> <span class="op">(</span> <span class="va">example_surveys</span>, <span class="va">to_harmonize</span> <span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in c("filename", "var_name_orig", "var_name_target", "var_label") %in%     names(var_harmonization):</span> object 'to_harmonize' not found</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(assertion, env):</span> object 'example_surveys' not found</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

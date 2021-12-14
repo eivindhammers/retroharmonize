@@ -31,18 +31,8 @@ comprehensive S3 classes."><meta property="og:image" content="https://ropengov.g
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -86,23 +76,29 @@ comprehensive S3 classes.</p>
     
 
 <p>Read data stored in formats with rich metadata, such as SPSS (.sav) files, 
-and make them usable in a programmatic context.<br><code><a href="read_spss.html">read_spss</a></code>: read an SPSS file and record metadata for reproducibility<br><code><a href="read_rds.html">read_rds</a></code>: read an rds file and record metadata for reproducibility<br><code><a href="read_surveys.html">read_surveys</a></code>: programmatically read a list of surveys<br><code><a href="subset_surveys.html">subset_save_surveys</a></code>: programmatically read a list of surveys, 
-and subset them (pre-harmonize the same variables.)<br><code><a href="pull_survey.html">pull_survey</a></code>: pull a single survey from a survey list.<br></p>
+and make them usable in a programmatic context.<br><code><a href="read_spss.html">read_spss</a></code>: read an SPSS file and record metadata for reproducibility<br><code><a href="read_rds.html">read_rds</a></code>: read an rds file and record metadata for reproducibility<br><code><a href="read_surveys.html">read_surveys</a></code>: programmatically read a list of surveys<br><code><a href="pull_survey.html">pull_survey</a></code>: pull a single survey from a survey list.<br></p>
     </div>
     <div class="section level2">
-    <h2 id="harmonization-functions">harmonization functions<a class="anchor" aria-label="anchor" href="#harmonization-functions"></a></h2>
+    <h2 id="subsetting-functions">subsetting functions<a class="anchor" aria-label="anchor" href="#subsetting-functions"></a></h2>
     
 
-<p><code><a href="label_normalize.html">label_normalize</a></code> removes special characters, whitespace, 
-and other typical typing errors and helps the uniformization of labels
-and variable names.<br><code><a href="suggest_permanent_names.html">suggest_permanent_names</a></code>: Suggest the use of variable naming conventions.</p>
+<p><code><a href="subset_surveys.html">subset_surveys</a></code>: remove variables from surveys that cannot be harmonized.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="variable-name-harmonization-functions">variable name harmonization functions<a class="anchor" aria-label="anchor" href="#variable-name-harmonization-functions"></a></h2>
+    
+
+<p><code>suggest_permanent_names</code>: Suggest the use of variable naming conventions.
+<code><a href="harmonize_survey_variables.html">harmonize_survey_variables</a></code>: Create a list of surveys with harmonized variable names.<br></p>
     </div>
     <div class="section level2">
     <h2 id="variable-label-harmonization-functions">variable label harmonization functions<a class="anchor" aria-label="anchor" href="#variable-label-harmonization-functions"></a></h2>
     
 
-<p>Create consistent coding and labelling.<br><code><a href="harmonize_values.html">harmonize_values</a></code>: Harmonize the label list across surveys.<br><code><a href="harmonize_survey_values.html">harmonize_survey_values</a></code>: Create a list of surveys with harmonized value labels.<br><code><a href="subset_surveys.html">harmonize_survey_variables</a></code>: Create a list of surveys with harmonized variable names.<br><code><a href="na_range_to_values.html">na_range_to_values</a></code>: Make the <code>na_range</code> attributes,
-as imported from SPSS, consistent with the <code>na_values</code> attributes.<br></p>
+<p>Create consistent coding and labelling.<br><code><a href="harmonize_values.html">harmonize_values</a></code>: Harmonize the label list across surveys.<br><code><a href="harmonize_survey_values.html">harmonize_survey_values</a></code>: Create a list of surveys with harmonized value labels.<br><code><a href="na_range_to_values.html">na_range_to_values</a></code>: Make the <code>na_range</code> attributes,
+as imported from SPSS, consistent with the <code>na_values</code> attributes.<br><code><a href="label_normalize.html">label_normalize</a></code> removes special characters, whitespace, 
+and other typical typing errors and helps the uniformization of labels
+and variable names.<br></p>
     </div>
     <div class="section level2">
     <h2 id="survey-harmonization-functions">survey harmonization functions<a class="anchor" aria-label="anchor" href="#survey-harmonization-functions"></a></h2>
@@ -116,7 +112,7 @@ value labels and harmonize R classes.<br></p>
     <h2 id="metadata-functions">metadata functions<a class="anchor" aria-label="anchor" href="#metadata-functions"></a></h2>
     
 
-<p><code><a href="metadata_create.html">metadata_create</a></code>: Createa metadata dataa from from one <code><a href="survey.html">survey</a></code>.<br><code><a href="metadata_create.html">metadata_surveys_create</a></code>: Create a joined metadata data frame from more than one survey.<br><code><a href="create_codebook.html">create_codebook</a></code> and <code><a href="create_codebook.html">codebook_waves_create</a></code>
+<p><code><a href="metadata_create.html">metadata_create</a></code>: Createa metadata dataa from from one <code><a href="survey.html">survey</a></code>.<br><code>metadata_surveys_create</code>: Create a joined metadata data frame from more than one survey.<br><code><a href="create_codebook.html">create_codebook</a></code> and <code><a href="create_codebook.html">codebook_waves_create</a></code>
 <code><a href="crosswalk_table_create.html">crosswalk_table_create</a></code>: Create an initial crosswalk table from a metadata data frame.<br></p>
     </div>
     <div class="section level2">

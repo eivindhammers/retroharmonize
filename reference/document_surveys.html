@@ -21,18 +21,8 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -64,7 +54,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">document_surveys</span><span class="op">(</span><span class="va">survey_list</span><span class="op">)</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">document_surveys</span><span class="op">(</span>survey_list <span class="op">=</span> <span class="cn">NULL</span>, survey_paths <span class="op">=</span> <span class="cn">NULL</span>, .f <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
 
 <span class="fu">document_waves</span><span class="op">(</span><span class="va">waves</span><span class="op">)</span></code></pre></div>
     </div>
@@ -73,6 +63,15 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>survey_list</dt>
 <dd><p>A list of <code><a href="survey.html">survey</a></code> objects.</p></dd>
+<dt>survey_paths</dt>
+<dd><p>A vector of full file paths to the surveys to subset, defaults to 
+<code>NULL</code>.</p></dd>
+<dt>.f</dt>
+<dd><p>A function to import the surveys with.
+Defaults to <code>'read_rds'</code>. For SPSS files,
+<code>read_spss</code> is recommended, which is a
+well-parameterized version of <code><a href="https://haven.tidyverse.org/reference/read_spss.html" class="external-link">read_spss</a></code> that
+saves some metadata, too. For STATA files use <code>read_dta</code>.</p></dd>
 <dt>waves</dt>
 <dd><p>A list of <code><a href="survey.html">survey</a></code> objects.</p></dd>
 </dl></div>
@@ -84,7 +83,12 @@ columns, and the size of the object as stored in memory.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The earlier form <code>document_waves</code> is deprecated.  
+    <p>The function has two alternative input parameters. If <code>survey_list</code> is the 
+input, it returns  the name of the original source data file, the number of rows and 
+columns, and the size of the object as stored in memory. In case <code>survey_paths</code>
+contains the source data files, it will sequentially read those files, and add the file
+size, the last access and the last modified time attributes.</p>
+<p>The earlier form <code>document_waves</code> is deprecated.  
 Currently called <code>document_surveys</code>.</p>
     </div>
     <div class="section level2">
@@ -102,7 +106,7 @@ Currently called <code>document_surveys</code>.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">example_surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_surveys.html">read_surveys</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">examples_dir</span>, <span class="va">my_rds_files</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"> </span>
-<span class="r-in"><span class="va">documented_surveys</span> <span class="op">&lt;-</span> <span class="fu">document_surveys</span><span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">documented_surveys</span> <span class="op">&lt;-</span> <span class="fu">document_surveys</span><span class="op">(</span>survey_list<span class="op">=</span><span class="va">example_surveys</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">documented_surveys</span>, <span class="st">"original_list"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "example_surveys"</span>
@@ -110,9 +114,21 @@ Currently called <code>document_surveys</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id     filename    ncol  nrow object_size</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ZA5913 ZA5913.rds    37    35      <span style="text-decoration: underline;">108</span>328</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> ZA6863 ZA6863.rds    48    50      <span style="text-decoration: underline;">142</span>864</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> ZA7576 ZA7576.rds    55    45      <span style="text-decoration: underline;">163</span>792</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ZA5913 ZA5913.rds    37    35      <span style="text-decoration: underline;">108</span>664</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> ZA6863 ZA6863.rds    48    50      <span style="text-decoration: underline;">143</span>200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> ZA7576 ZA7576.rds    55    45      <span style="text-decoration: underline;">164</span>128</span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu">document_surveys</span><span class="op">(</span>survey_paths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">examples_dir</span>, <span class="va">my_rds_files</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 1/1 ZA5913.rds</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 1/2 ZA6863.rds</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 1/3 ZA7576.rds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id     filename    ncol  nrow object_size file_size accessed    last_modified </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ZA5913 ZA5913.rds    37    35      <span style="text-decoration: underline;">108</span>664      <span style="text-decoration: underline;">6</span>507 2021-12-14… 2021-12-14 10…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> ZA6863 ZA6863.rds    48    50      <span style="text-decoration: underline;">143</span>200      <span style="text-decoration: underline;">8</span>738 2021-12-14… 2021-12-14 10…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> ZA7576 ZA7576.rds    55    45      <span style="text-decoration: underline;">164</span>128      <span style="text-decoration: underline;">9</span>312 2021-12-14… 2021-12-14 10…</span>
+<span class="r-in"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

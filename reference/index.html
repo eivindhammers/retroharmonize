@@ -21,18 +21,8 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -57,9 +47,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="importing">Importing<a class="anchor" aria-label="anchor" href="#importing"></a></h2>
       
-      
+      <p class="section-desc"></p><p>Survey data, i.e., data derived from questionnaires or systematic data collection, such as inspecting objects in nature, recording prices at shops are usually stored databases, and converted to complex files retaining at least coding, labelling metadata together with the data. This must be imported to R so that the appropriate harmonization tasks can be carried out with the appropriate R types.</p>
 
       
     </div><div id="" class="section level2">
@@ -69,65 +59,109 @@
 
       <dl><dt>
           
-          <code><a href="as_factor.html">as_factor()</a></code> 
+          <code><a href="read_surveys.html">read_surveys()</a></code> <code><a href="read_surveys.html">read_survey()</a></code> 
         </dt>
-        <dd>Convert labelled_spss_survey vector To Factor</dd>
+        <dd>Read survey file(s)</dd>
       </dl><dl><dt>
           
-          <code><a href="as_labelled_spss_survey.html">as_labelled_spss_survey()</a></code> 
+          <code><a href="read_rds.html">read_rds()</a></code> 
         </dt>
-        <dd>Labelled to labelled_spss_survey</dd>
+        <dd>Read rds file</dd>
       </dl><dl><dt>
           
-          <code><a href="collect_val_labels.html">collect_val_labels()</a></code> <code><a href="collect_val_labels.html">collect_na_labels()</a></code> 
+          <code><a href="read_spss.html">read_spss()</a></code> 
         </dt>
-        <dd>Collect labels from metadata file</dd>
+        <dd>Read SPSS (`.sav`, `.zsav`, `.por`) files. Write `.sav` and `.zsav` files.</dd>
       </dl><dl><dt>
           
-          <code><a href="concatenate.html">concatenate()</a></code> 
+          <code><a href="read_dta.html">read_dta()</a></code> 
         </dt>
-        <dd>Concatenate haven_labelled_spss vectors</dd>
+        <dd>Read Stata DTA files (`.dta`) files</dd>
       </dl><dl><dt>
           
-          <code><a href="create_codebook.html">create_codebook()</a></code> <code><a href="create_codebook.html">codebook_waves_create()</a></code> <code><a href="create_codebook.html">codebook_surveys_create()</a></code> 
+          <code><a href="read_csv.html">read_csv()</a></code> 
         </dt>
-        <dd>Create a codebook</dd>
+        <dd>Read csv file</dd>
       </dl><dl><dt>
           
-          <code><a href="crosswalk_surveys.html">crosswalk_surveys()</a></code> <code><a href="crosswalk_surveys.html">crosswalk()</a></code> 
+          <code><a href="pull_survey.html">pull_survey()</a></code> 
         </dt>
-        <dd>Crosswalk surveys</dd>
+        <dd>Pull a survey from a survey list</dd>
+      </dl></div><div class="section level2">
+      <h2 id="harmonizing-concepts-with-metadata">Harmonizing concepts with metadata<a class="anchor" aria-label="anchor" href="#harmonizing-concepts-with-metadata"></a></h2>
+      
+      <p class="section-desc"></p><p>After importing data with some <strong>descriptive metadata</strong> such as <strong>numerical coding</strong> and <strong>labelling</strong>, we need to create a map of the information that is in our R session to prepare a harmonization plan. We must find information related to sufficiently similar concepts that can be harmonized to be successfully joined into a single variable, and eventually a table of similar variables must be joined.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="metadata_create.html">metadata_create()</a></code> <code><a href="metadata_create.html">metadata_waves_create()</a></code> 
+        </dt>
+        <dd>Create a metadata table from several surveys</dd>
       </dl><dl><dt>
+          
+          <code><a href="metadata_survey_create.html">metadata_survey_create()</a></code> 
+        </dt>
+        <dd>Create a metadata table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="retroharmonize.html">retroharmonize</a></code> 
+        </dt>
+        <dd>retroharmonize: Retrospective harmonization of survey data files</dd>
+      </dl></div><div class="section level2">
+      <h2 id="crosswalk">Crosswalk<a class="anchor" aria-label="anchor" href="#crosswalk"></a></h2>
+      
+      <p class="section-desc"></p><p>Laying out the harmonization <strong>crosswalk scheme</strong> (unifying variable names, codes, labels.) See the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/crosswalk.html" class="external-link">Working with a Crosswalk Table</a> for examples and further clarification.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="crosswalk_table_create.html">crosswalk_table_create()</a></code> <code><a href="crosswalk_table_create.html">is.crosswalk_table()</a></code> 
         </dt>
         <dd>Create a crosswalk table</dd>
       </dl><dl><dt>
           
-          <code><a href="document_survey_item.html">document_survey_item()</a></code> 
+          <code><a href="crosswalk_surveys.html">crosswalk_surveys()</a></code> <code><a href="crosswalk_surveys.html">crosswalk()</a></code> 
         </dt>
-        <dd>Document survey item harmonization</dd>
-      </dl><dl><dt>
+        <dd>Crosswalk surveys</dd>
+      </dl></div><div class="section level2">
+      <h2 id="subsetting">Subsetting<a class="anchor" aria-label="anchor" href="#subsetting"></a></h2>
+      
+      <p class="section-desc"></p><p>Remove variables that <strong>cannot be harmonized</strong> in your workflow either in memory (faster for smaller tasks) or sequentially from files. See the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/crosswalk.html" class="external-link">Working with a Crosswalk Table</a> for examples and further clarification.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
-          <code><a href="document_surveys.html">document_surveys()</a></code> <code><a href="document_surveys.html">document_waves()</a></code> 
+          <code><a href="subset_surveys.html">subset_surveys()</a></code> <code><a href="subset_surveys.html">subset_waves()</a></code> <code><a href="subset_surveys.html">subset_save_surveys()</a></code> 
         </dt>
-        <dd>Document survey lists</dd>
-      </dl><dl><dt>
-          
-          <code><a href="harmonize_na_values.html">harmonize_na_values()</a></code> 
-        </dt>
-        <dd>Harmonize na_values in haven_labelled_spss</dd>
-      </dl><dl><dt>
-          
-          <code><a href="harmonize_survey_values.html">harmonize_survey_values()</a></code> <code><a href="harmonize_survey_values.html">harmonize_waves()</a></code> 
-        </dt>
-        <dd>Harmonize values in surveys</dd>
-      </dl><dl><dt>
-          
-          <code><a href="harmonize_values.html">harmonize_values()</a></code> 
-        </dt>
-        <dd>Harmonize the values and labels of labelled vectors</dd>
-      </dl><dl><dt>
+        <dd>Subset surveys</dd>
+      </dl></div><div class="section level2">
+      <h2 id="harmonize-variable-names">Harmonize variable names<a class="anchor" aria-label="anchor" href="#harmonize-variable-names"></a></h2>
+      
+      <p class="section-desc"></p><p>Before joining variables containing responses about the same concept, make sure that they have <strong>identical names</strong> in the re-processed surveys. See the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/crosswalk.html" class="external-link">Working with a Crosswalk Table</a> for examples and further clarification.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="harmonize_var_names.html">harmonize_var_names()</a></code> 
         </dt>
@@ -139,19 +173,56 @@
         <dd>Normalize value and variable labels</dd>
       </dl><dl><dt>
           
-          <code><a href="labelled_spss_survey.html">labelled_spss_survey()</a></code> <code><a href="labelled_spss_survey.html">as_character()</a></code> <code><a href="labelled_spss_survey.html">is.labelled_spss_survey()</a></code> <code><a href="labelled_spss_survey.html">as_numeric()</a></code> 
+          <code><a href="harmonize_survey_variables.html">harmonize_survey_variables()</a></code> 
         </dt>
-        <dd>Labelled vectors for multiple SPSS surveys</dd>
+        <dd>Harmonize survey variables</dd>
+      </dl></div><div class="section level2">
+      <h2 id="harmonize-numerical-codes-and-labels">Harmonize numerical codes and labels<a class="anchor" aria-label="anchor" href="#harmonize-numerical-codes-and-labels"></a></h2>
+      
+      <p class="section-desc"></p><p>To merge variables from different surveys into a single variable, you must make sure that the numerical codes and labels, for example <em>0=‘no’</em> and <em>1=‘yes’</em> are processed identically. See the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/harmonize_labels.html" class="external-link">Harmonize Value Labels</a> for examples and further clarification.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="collect_val_labels.html">collect_val_labels()</a></code> <code><a href="collect_val_labels.html">collect_na_labels()</a></code> 
+        </dt>
+        <dd>Collect labels from metadata file</dd>
+      </dl><dl><dt>
+          
+          <code><a href="harmonize_values.html">harmonize_values()</a></code> 
+        </dt>
+        <dd>Harmonize the values and labels of labelled vectors</dd>
+      </dl><dl><dt>
+          
+          <code><a href="harmonize_survey_values.html">harmonize_survey_values()</a></code> <code><a href="harmonize_survey_values.html">harmonize_waves()</a></code> 
+        </dt>
+        <dd>Harmonize values in surveys</dd>
       </dl><dl><dt>
           
           <code><a href="merge_surveys.html">merge_surveys()</a></code> <code><a href="merge_surveys.html">merge_waves()</a></code> 
         </dt>
         <dd>Merge surveys</dd>
-      </dl><dl><dt>
+      </dl></div><div class="section level2">
+      <h2 id="harmonize-missing-and-special-cases">Harmonize missing and special cases<a class="anchor" aria-label="anchor" href="#harmonize-missing-and-special-cases"></a></h2>
+      
+      <p class="section-desc"></p><p>Some variable codes have a special meaning, such as a various labels of <strong>missing values</strong> which need to be converted differently to numeric, factor or character representation. See the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/harmonize_labels.html" class="external-link">Harmonize Value Labels</a> for examples and further clarification.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
-          <code><a href="metadata_create.html">metadata_create()</a></code> <code><a href="metadata_create.html">metadata_surveys_create()</a></code> <code><a href="metadata_create.html">metadata_waves_create()</a></code> 
+          <code><a href="collect_val_labels.html">collect_val_labels()</a></code> <code><a href="collect_val_labels.html">collect_na_labels()</a></code> 
         </dt>
-        <dd>Create a metadata table</dd>
+        <dd>Collect labels from metadata file</dd>
       </dl><dl><dt>
           
           <code><a href="na_range_to_values.html">na_range_to_values()</a></code> <code><a href="na_range_to_values.html">is.na_range_to_values()</a></code> 
@@ -159,56 +230,74 @@
         <dd>Harmonize user-defined missing value ranges</dd>
       </dl><dl><dt>
           
-          <code><a href="pull_survey.html">pull_survey()</a></code> 
+          <code><a href="harmonize_na_values.html">harmonize_na_values()</a></code> 
         </dt>
-        <dd>Pull a survey from a survey list</dd>
+        <dd>Harmonize na_values in haven_labelled_spss</dd>
+      </dl></div><div class="section level2">
+      <h2 id="documentation-functions">Documentation functions<a class="anchor" aria-label="anchor" href="#documentation-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>These functionality requires a thorough review.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="document_survey_item.html">document_survey_item()</a></code> 
+        </dt>
+        <dd>Document survey item harmonization</dd>
       </dl><dl><dt>
           
-          <code><a href="read_dta.html">read_dta()</a></code> 
+          <code><a href="document_surveys.html">document_surveys()</a></code> <code><a href="document_surveys.html">document_waves()</a></code> 
         </dt>
-        <dd>Read Stata DTA files (`.dta`) files</dd>
+        <dd>Document survey lists</dd>
       </dl><dl><dt>
           
-          <code><a href="read_rds.html">read_rds()</a></code> 
+          <code><a href="create_codebook.html">create_codebook()</a></code> <code><a href="create_codebook.html">codebook_waves_create()</a></code> <code><a href="create_codebook.html">codebook_surveys_create()</a></code> 
         </dt>
-        <dd>Read survey from rds file</dd>
-      </dl><dl><dt>
-          
-          <code><a href="read_spss.html">read_spss()</a></code> 
-        </dt>
-        <dd>Read SPSS (`.sav`, `.zsav`, `.por`) files. Write `.sav` and `.zsav` files.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="read_surveys.html">read_surveys()</a></code> 
-        </dt>
-        <dd>Read Survey Files</dd>
-      </dl><dl><dt>
-          
-          <code><a href="retroharmonize.html">retroharmonize</a></code> 
-        </dt>
-        <dd>retroharmonize: Retrospective harmonization of survey data files</dd>
-      </dl><dl><dt>
-          
-          <code><a href="subset_surveys.html">subset_surveys()</a></code> <code><a href="subset_surveys.html">subset_save_surveys()</a></code> <code><a href="subset_surveys.html">harmonize_survey_variables()</a></code> <code><a href="subset_surveys.html">subset_waves()</a></code> 
-        </dt>
-        <dd>Subset surveys</dd>
-      </dl><dl><dt>
-          
-          <code><a href="suggest_permanent_names.html">suggest_permanent_names()</a></code> 
-        </dt>
-        <dd>Suggest permanent names</dd>
-      </dl><dl><dt>
-          
-          <code><a href="suggest_var_names.html">suggest_var_names()</a></code> 
-        </dt>
-        <dd>Suggest variable names</dd>
-      </dl><dl><dt>
+        <dd>Create a codebook</dd>
+      </dl></div><div class="section level2">
+      <h2 id="type-conversion">Type conversion<a class="anchor" aria-label="anchor" href="#type-conversion"></a></h2>
+      
+      <p class="section-desc"></p><p>Consistently treat labels, missing value ranges, missing value labels imported from SPSS, STATA or other source to use R language statistical functions, which mainly work with the base class of <strong>numeric</strong> or <strong>factor</strong>. For data visualization, the base class <strong>character</strong> may be preferred. See vignette <a href="https://retroharmonize.dataobservatory.eu/articles/labelled_spss_survey.html" class="external-link">The labelled_spss_survey class</a> for further information.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="survey.html">survey()</a></code> <code><a href="survey.html">is.survey()</a></code> <code><a href="survey.html">summary(<i>&lt;survey&gt;</i>)</a></code> 
         </dt>
-        <dd>Survey data frame</dd>
+        <dd>Create a survey data frame</dd>
+      </dl><dl><dt>
+          
+          <code><a href="labelled_spss_survey.html">labelled_spss_survey()</a></code> <code><a href="labelled_spss_survey.html">as_character()</a></code> <code><a href="labelled_spss_survey.html">is.labelled_spss_survey()</a></code> <code><a href="labelled_spss_survey.html">as_numeric()</a></code> 
+        </dt>
+        <dd>Labelled vectors for multiple SPSS surveys</dd>
+      </dl><dl><dt>
+          
+          <code><a href="as_labelled_spss_survey.html">as_labelled_spss_survey()</a></code> 
+        </dt>
+        <dd>Labelled to labelled_spss_survey</dd>
+      </dl><dl><dt>
+          
+          <code><a href="concatenate.html">concatenate()</a></code> 
+        </dt>
+        <dd>Concatenate haven_labelled_spss vectors</dd>
+      </dl><dl><dt>
+          
+          <code><a href="as_factor.html">as_factor()</a></code> 
+        </dt>
+        <dd>Convert labelled_spss_survey vector To Factor</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

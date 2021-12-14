@@ -11,7 +11,7 @@
     variable names and value labels, including missing values, and
     documenting the data transformations, with the help of comprehensive
     s3 classes.">
-<title>Ex Post Survey Data Harmonization • retroharmonize</title>
+<title>Reproducible survey harmonization • retroharmonize</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -23,7 +23,7 @@
 <script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="deps/_Roboto%20Mono-0.4.0/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Ex Post Survey Data Harmonization">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Reproducible survey harmonization">
 <meta property="og:description" content="Assist in reproducible retrospective (ex-post) harmonization
     of data, particularly individual level survey data, by providing tools
     for organizing metadata, standardizing the coding of variables, and
@@ -62,18 +62,8 @@
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="news/index.html">Changelog</a>
@@ -122,34 +112,41 @@
 <div class="section level2">
 <h2 id="survey-harmonization">Survey harmonization<a class="anchor" aria-label="anchor" href="#survey-harmonization"></a>
 </h2>
-<p>Survey data harmonization refers to procedures that improve the data comparability or the inferential capacity of multiple surveys. The <em>retroharmonize</em> package support various data processing, documentation, file/type conversion aspects of various survey harmonization workflows.</p>
-<p>From a technical perspective, the aim of the survey harmonization is to create a single, tidy, joined table in the form of a data frame that contains a row identifier, which is truly unique across all observations and the concatenated and harmonized variables.</p>
-<ol style="list-style-type: decimal">
-<li>
-<strong>Harmonization of concepts</strong>: Create a mental map of the measured concepts that needs to be harmonized, for example, a binary sex variable with missing cases and a four-level categorical variable on gender identification that has <em>other</em> and <em>declined</em> options. See the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/survey_harmonization" class="external-link">Working With Survey Metadata</a> how mapping the metadata of the surveys can help getting started with this first step.</li>
-<li>
-<strong>Variable names</strong>: Make sure that <code>survey_1$sex</code> and <code>survey_2$gender</code> can be concatenated to a gender vector or <code>survey_joined$gender</code>. See more in the <a href="https://retroharmonize.dataobservatory.eu/articles/crosswalk.html" class="external-link">Working With A Crosswalk Table</a>.</li>
-<li>
-<strong>Variable coding and labels</strong>: Female=0 in <code>survey_1$sex</code> and female=2 in <code>survey_2$gender</code> becomes consistently female=0. Missing and <em>declined</em> values are consistently handled.</li>
-<li>
-<strong>Variable types</strong>: to use R’s statistical functions with the concatenated version of <code>survey_1$sex</code> and <code>survey_2$gender</code> they must have the same R type. In the vast majority of the cases either <em>numeric</em> or <em>factor</em>, and in data visualization applications sometimes <em>character</em>. See more in the <a href="https://retroharmonize.dataobservatory.eu/articles/harmonize_labels.html" class="external-link">Harmonize Value Labels</a> vignette.</li>
-<li>
-<strong>Reproducibility</strong>: To review statistics derived from the concatenated variable (or the joined data frame), they must remain comparable with <code>survey_1$sex</code> and <code>survey_2$gender</code>. It is also necessary to have a new, unique row ID for each observation. If you want to make your work available outside R, in a different software, the joined, longitudional data frame must be exported in a consistent manner.</li>
-</ol>
+<p>Survey data harmonization refers to procedures that improve the data comparability or the inferential capacity of multiple surveys. The <em>retroharmonize</em> package support various data processing, documentation, file/type conversion aspects of various retrosepctive survey harmonization workflows (i.e. harmonization tasks related to surveys that already have already been conducted, recorded into a coded file.)</p>
+<p>From a technical perspective, the aim of the survey harmonization is to create a single, tidy, joined harmonized dataset in the form of a data frame that contains a row identifier, which is truly unique across all observations and the concatenated and harmonized variables. We do this in a way that provides an unambigous mapping of numerical coded and labelled data, including special and missing data—in other words, disallowing coercion that may lead to logical errors due to syntactically correct, but logically inconsistent variable labelling in different source files. Taking the harmonization to the level of type harmonization allows the use of R’s powerful statistical packages that require numeric or factor type input, and a wide range of survey output harmonization (harmonized statistics and indicators.</p>
 <p>For an extended overview of these problems with illustrations please refer to the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/survey_harmonization" class="external-link">Survey Harmonization</a>.</p>
-<p>Researchers may have different preferred workflows, for example:</p>
-<ol style="list-style-type: decimal">
-<li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize variable names -&gt; Harmonize variable classes -&gt; Harmonize labels and codes -&gt; Join data</p></li>
-<li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize variable names -&gt; Harmonize labels and codes - &gt; Harmonize variable classes -&gt; Join data</p></li>
-<li><p>Harmonize concepts -&gt; Tidy datasets -&gt; Harmonize labels and codes -&gt; Harmonize variable classes -&gt; Harmonize names -&gt; Join data</p></li>
-</ol>
-<p>Our package has different utilities for different workflows.</p>
+<div class="section level3">
+<h3 id="importing">Importing<a class="anchor" aria-label="anchor" href="#importing"></a>
+</h3>
+<p>Survey data, i.e., data derived from questionnaires or systematic data collection, such as inspecting objects in nature, recording prices at shops are usually stored databases, and converted to complex files retaining at least coding, labelling metadata together with the data. This must be imported to R so that the appropriate harmonization tasks can be carried out with the appropriate R types.</p>
 </div>
-<div class="section level2">
-<h2 id="working-with-spss-files">Working with SPSS files<a class="anchor" aria-label="anchor" href="#working-with-spss-files"></a>
-</h2>
-<p>Survey data is often available in SPSS’s custom labelled format. Unfortunately, joining data with different labelling is not possible. When you do not need to preserve the history of complex harmonization problems, codebook, etc, then you do not necessary need to look under the hoods of our S3 classes. The new <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class is an inherited extension of <a href="https://haven.tidyverse.org/reference/labelled_spss.html" class="external-link">haven’s labelled_spss class</a>. It not only preserves variable and value labels and the user-defined missing range, but also gives an identifier, for example, the filename or the wave number, to the vector. Additionally, it enables the preservation— as metadata attributes—the original variable names, labels, and value codes and labels, from the source data. This way, the harmonized data also contain the pre-harmonization record. The vignette <a href="https://retroharmonize.dataobservatory.eu/articles/labelled_spss_survey.html" class="external-link">Working With The labelled_spss_survey Class</a> provides more information about the <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class.</p>
-<p>In <a href="https://retroharmonize.dataobservatory.eu/articles/harmonize_labels.html" class="external-link">Harmonize Value Labels</a> we discuss the characteristics of the <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class and demonstrates the problems that using this class solves.</p>
+<div class="section level3">
+<h3 id="harmonization-of-concepts">Harmonization of concepts<a class="anchor" aria-label="anchor" href="#harmonization-of-concepts"></a>
+</h3>
+<p>After importing data with some descriptive metadata such as numerical coding and labelling, we need to create a map of the information that is in our R session to prepare a harmonization plan. We must find information related to sufficiently similar concepts that can be harmonized to be successfully joined into a single variable, and eventually a table of similar variables must be joined.</p>
+<p>We create a map of the measured concepts that needs to be harmonized, for example, a binary sex variable with missing cases and a four-level categorical variable on gender identification that has <em>other</em> and <em>declined</em> options. See the vignette <a href="https://retroharmonize.dataobservatory.eu/articles/survey_harmonization" class="external-link">Working With Survey Metadata</a> how mapping the metadata of the surveys can help getting started with this first step.</p>
+<p>We use a <a href="https://retroharmonize.dataobservatory.eu/articles/crosswalk.html" class="external-link">crosswalk table</a> or a <em>crosswalk scheme</em> for all the variable name, value label and type conversion tasks that we plan to do.</p>
+</div>
+<div class="section level3">
+<h3 id="harmonization-of-variable-names">Harmonization of variable names<a class="anchor" aria-label="anchor" href="#harmonization-of-variable-names"></a>
+</h3>
+<p>Make sure that <code>survey_1$sex</code> and <code>survey_2$gender</code> can be concatenated to a gender vector or <code>survey_joined$gender</code>. See more in the <a href="https://retroharmonize.dataobservatory.eu/articles/crosswalk.html" class="external-link">Working With A Crosswalk Table</a>.</p>
+</div>
+<div class="section level3">
+<h3 id="harmonization-of-variable-numerical-codes-and-labels">Harmonization of variable numerical codes and labels<a class="anchor" aria-label="anchor" href="#harmonization-of-variable-numerical-codes-and-labels"></a>
+</h3>
+<p>For example, <em>Female=0</em> in <code>survey_1$sex</code> and <em>female=2</em> in <code>survey_2$gender</code> becomes consistently female=0. Missing and <em>declined</em> values are consistently handled.</p>
+</div>
+<div class="section level3">
+<h3 id="consistent-types">Consistent types<a class="anchor" aria-label="anchor" href="#consistent-types"></a>
+</h3>
+<p>To use R’s statistical functions with the concatenated version of <code>survey_1$sex</code> and <code>survey_2$gender</code> they must have the same R type. In the vast majority of the cases either <em>numeric</em> or <em>factor</em>, and in data visualization applications sometimes <em>character</em>. See more in the <a href="https://retroharmonize.dataobservatory.eu/articles/harmonize_labels.html" class="external-link">Harmonize Value Labels</a> vignette.</p>
+</div>
+<div class="section level3">
+<h3 id="reproducibility--documentation">Reproducibility &amp; Documentation<a class="anchor" aria-label="anchor" href="#reproducibility--documentation"></a>
+</h3>
+<p>To review statistical results and model results derived from the concatenated variable (or the joined data frame), they must remain comparable with <code>survey_1$sex</code> and <code>survey_2$gender</code>. It is also necessary to have a new, unique row ID for each observation. If you want to make your work available outside R, in a different software, the joined, longitudional data frame must be exported in a consistent manner.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
@@ -162,6 +159,12 @@
 </ul>
 <p>The creators of <code>retroharmonize</code> are not affiliated with either Afrobarometer, Arab Barometer, Eurobarometer, or the organizations that designs, produces or archives their surveys.</p>
 <p>We started building an experimental APIs data is running retroharmonize regularly and improving known statistical data sources. See: <a href="https://music.dataobservatory.eu/" class="external-link">Digital Music Observatory</a>, <a href="https://greendeal.dataobservatory.eu/" class="external-link">Green Deal Data Observatory</a>, <a href="https://economy.dataobservatory.eu/" class="external-link">Economy Data Observatory</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="working-with-spss-files">Working with SPSS files<a class="anchor" aria-label="anchor" href="#working-with-spss-files"></a>
+</h2>
+<p>Survey data is often available in SPSS’s custom labelled format. Unfortunately, joining data with different labelling is not possible. When you do not need to preserve the history of complex harmonization problems, codebook, etc, then you do not necessary need to look under the hoods of our S3 classes. The new <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class is an inherited extension of <a href="https://haven.tidyverse.org/reference/labelled_spss.html" class="external-link">haven’s labelled_spss class</a>. It not only preserves variable and value labels and the user-defined missing range, but also gives an identifier, for example, the filename or the wave number, to the vector. Additionally, it enables the preservation— as metadata attributes—the original variable names, labels, and value codes and labels, from the source data. This way, the harmonized data also contain the pre-harmonization record. The vignette <a href="https://retroharmonize.dataobservatory.eu/articles/labelled_spss_survey.html" class="external-link">Working With The labelled_spss_survey Class</a> provides more information about the <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class.</p>
+<p>In <a href="https://retroharmonize.dataobservatory.eu/articles/harmonize_labels.html" class="external-link">Harmonize Value Labels</a> we discuss the characteristics of the <code><a href="reference/labelled_spss_survey.html">labelled_spss_survey()</a></code> class and demonstrates the problems that using this class solves.</p>
 </div>
 <div class="section level2">
 <h2 id="citations-and-related-work">Citations and related work<a class="anchor" aria-label="anchor" href="#citations-and-related-work"></a>

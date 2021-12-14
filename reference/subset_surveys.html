@@ -23,18 +23,8 @@ by removing variables that are not harmonized."><meta property="og:image" conten
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -78,6 +68,8 @@ by removing variables that are not harmonized.</p>
   export_path <span class="op">=</span> <span class="cn">NULL</span>
 <span class="op">)</span>
 
+<span class="fu">subset_waves</span><span class="op">(</span><span class="va">waves</span>, subset_vars <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
+
 <span class="fu">subset_save_surveys</span><span class="op">(</span>
   <span class="va">crosswalk_table</span>,
   subset_name <span class="op">=</span> <span class="st">"subset"</span>,
@@ -85,18 +77,7 @@ by removing variables that are not harmonized.</p>
   survey_paths <span class="op">=</span> <span class="cn">NULL</span>,
   import_path <span class="op">=</span> <span class="cn">NULL</span>,
   export_path <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">harmonize_survey_variables</span><span class="op">(</span>
-  <span class="va">crosswalk_table</span>,
-  subset_name <span class="op">=</span> <span class="st">"subset"</span>,
-  survey_list <span class="op">=</span> <span class="cn">NULL</span>,
-  survey_paths <span class="op">=</span> <span class="cn">NULL</span>,
-  import_path <span class="op">=</span> <span class="cn">NULL</span>,
-  export_path <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">subset_waves</span><span class="op">(</span><span class="va">waves</span>, subset_vars <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+<span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -120,19 +101,12 @@ crosstable including at least
 <code>filename</code>, <code>var_name_orig</code>, <code>var_name_target</code> and optionally 
  <code>var_label_orig</code> and <code>var_label_target</code>. This parameter is optional and 
  defaults to <code>NULL</code>.</p></dd>
-<dt>import_path</dt>
-<dd><p>The path to the survey files. Defaults to <code>NULL</code>.</p></dd>
-<dt>export_path</dt>
-<dd><p>The path where the subsets should be saved. Defaults to <code>NULL</code> when
-the surveys are not saved but returned as a list.</p></dd>
 <dt>waves</dt>
 <dd><p>A list of surveys imported with <code><a href="read_surveys.html">read_surveys</a></code>.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list of surveys or save individual rds files on the <code>export_path</code>.
-The function does not return a value. It saves the subsetted
-surveys into .rds files.</p>
+    <p>A list of surveys or save individual rds files on the <code>export_path</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -145,20 +119,6 @@ optionally defined in the <code>crosswalk_table</code> input.
 <code>harmonize_survey_variables</code> is a wrapper and will require that the new (target) variable names are
 present in a valid <code>crosstable</code>.</p>
     </div>
-    <div class="section level2">
-    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other harmonization functions: 
-<code><a href="collect_val_labels.html">collect_val_labels</a>()</code>,
-<code><a href="crosswalk_surveys.html">crosswalk_surveys</a>()</code>,
-<code><a href="crosswalk_table_create.html">crosswalk_table_create</a>()</code>,
-<code><a href="harmonize_na_values.html">harmonize_na_values</a>()</code>,
-<code><a href="harmonize_survey_values.html">harmonize_survey_values</a>()</code>,
-<code><a href="harmonize_values.html">harmonize_values</a>()</code>,
-<code><a href="harmonize_var_names.html">harmonize_var_names</a>()</code>,
-<code><a href="label_normalize.html">label_normalize</a>()</code>,
-<code><a href="suggest_permanent_names.html">suggest_permanent_names</a>()</code>,
-<code><a href="suggest_var_names.html">suggest_var_names</a>()</code></p></div>
-    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
@@ -166,8 +126,9 @@ present in a valid <code>crosstable</code>.</p>
 <span class="r-in"><span class="va">survey_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">examples_dir</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"\\.rds"</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">examples_dir</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">example_surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_surveys.html">read_surveys</a></span><span class="op">(</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">examples_dir</span>, <span class="va">survey_list</span><span class="op">)</span>, </span>
-<span class="r-in">  save_to_rds <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">examples_dir</span>, <span class="va">survey_list</span><span class="op">)</span></span>
+<span class="r-in">  <span class="op">)</span></span>
+<span class="r-in">  </span>
 <span class="r-in"><span class="fu">subset_surveys</span><span class="op">(</span>survey_list <span class="op">=</span> <span class="va">example_surveys</span>, </span>
 <span class="r-in">              subset_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rowid"</span>, <span class="st">"isocntry"</span>, <span class="st">"qa10_1"</span>, <span class="st">"qa14_1"</span><span class="op">)</span>, </span>
 <span class="r-in">              subset_name <span class="op">=</span> <span class="st">"subset_example"</span><span class="op">)</span></span>
@@ -217,73 +178,6 @@ present in a valid <code>crosstable</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ZA7576_8  NL       3<span style="color: #949494;"> [DK]</span>               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ZA7576_9  NL       2<span style="color: #949494;"> [Tend not to trust]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ZA7576_10 NL       2<span style="color: #949494;"> [Tend not to trust]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="va">test_survey</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_rds.html">read_rds</a></span> <span class="op">(</span></span>
-<span class="r-in">  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"ZA7576.rds"</span>,</span>
-<span class="r-in">                     package <span class="op">=</span> <span class="st">"retroharmonize"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in">  <span class="va">test_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="metadata_create.html">metadata_create</a></span> <span class="op">(</span> <span class="va">test_survey</span> <span class="op">)</span></span>
-<span class="r-in">  <span class="va">test_metadata</span> <span class="op">&lt;-</span> <span class="va">test_metadata</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">7</span>,<span class="fl">18</span><span class="op">)</span>,<span class="op">]</span></span>
-<span class="r-in">  <span class="va">ctable</span> <span class="op">&lt;-</span> <span class="fu"><a href="crosswalk_table_create.html">crosswalk_table_create</a></span><span class="op">(</span><span class="va">test_metadata</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">subset_save_surveys</span>  <span class="op">(</span> crosswalk_table <span class="op">=</span> <span class="va">ctable</span>, </span>
-<span class="r-in">                       subset_name <span class="op">=</span> <span class="st">"tested"</span>,</span>
-<span class="r-in">                       survey_list <span class="op">=</span>  <span class="va">test_survey</span>,</span>
-<span class="r-in">                       import_path <span class="op">=</span> <span class="cn">NULL</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ZA7576</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 45 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    rowid     isocntry                qa14_3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl+lbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ZA7576_1  ES       2<span style="color: #949494;"> [Tend not to trust]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ZA7576_2  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ZA7576_3  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ZA7576_4  NL       3<span style="color: #949494;"> [DK]</span>               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ZA7576_5  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ZA7576_6  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ZA7576_7  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ZA7576_8  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ZA7576_9  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ZA7576_10 NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="va">test_survey</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_rds.html">read_rds</a></span> <span class="op">(</span></span>
-<span class="r-in">  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"ZA7576.rds"</span>,</span>
-<span class="r-in">                     package <span class="op">=</span> <span class="st">"retroharmonize"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in">  <span class="va">test_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="metadata_create.html">metadata_create</a></span> <span class="op">(</span> <span class="va">test_survey</span> <span class="op">)</span></span>
-<span class="r-in">  <span class="va">test_metadata</span> <span class="op">&lt;-</span> <span class="va">test_metadata</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">7</span>,<span class="fl">18</span><span class="op">)</span>,<span class="op">]</span></span>
-<span class="r-in">  <span class="va">ctable_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="crosswalk_table_create.html">crosswalk_table_create</a></span><span class="op">(</span><span class="va">test_metadata</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = c("id", "filename", "var_name_orig", "var_name_target", "val_numeric_orig", "val_numeric_target", "val_label_orig", "val_label_target")</span>
-<span class="r-in">  <span class="va">ctable_2</span><span class="op">$</span><span class="va">var_name_target</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ctable</span><span class="op">$</span><span class="va">var_name_orig</span> <span class="op">==</span> <span class="st">"qa14_3"</span>, </span>
-<span class="r-in">                                     <span class="st">"trust_ecb"</span>, </span>
-<span class="r-in">                                      <span class="va">ctable</span><span class="op">$</span><span class="va">var_name_orig</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">subset_save_surveys</span>  <span class="op">(</span> crosswalk_table <span class="op">=</span> <span class="va">ctable_2</span>, </span>
-<span class="r-in">                       subset_name <span class="op">=</span> <span class="st">"tested"</span>,</span>
-<span class="r-in">                       survey_list <span class="op">=</span>  <span class="va">test_survey</span>,</span>
-<span class="r-in">                       import_path <span class="op">=</span> <span class="cn">NULL</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ZA7576</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 45 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    rowid     isocntry             trust_ecb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl+lbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ZA7576_1  ES       2<span style="color: #949494;"> [Tend not to trust]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ZA7576_2  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ZA7576_3  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ZA7576_4  NL       3<span style="color: #949494;"> [DK]</span>               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ZA7576_5  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ZA7576_6  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ZA7576_7  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ZA7576_8  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ZA7576_9  NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ZA7576_10 NL       1<span style="color: #949494;"> [Tend to trust]</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>

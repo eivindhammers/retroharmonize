@@ -52,18 +52,8 @@
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="active nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -136,10 +126,9 @@ Round 7: <code>r7_merged_data_34ctry.release.sav</code></p>
 <span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Afrobarometer_R5 merged-round-5-data-34-countries-201…   349 <span style="text-decoration: underline;">51</span>587   159<span style="text-decoration: underline;">027</span>592</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Afrobarometer_R6 merged_r6_data_2016_36countries2.sav    365 <span style="text-decoration: underline;">53</span>935   172<span style="text-decoration: underline;">064</span>576</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Afrobarometer_R7 r7_merged_data_34ctry.release.sav       367 <span style="text-decoration: underline;">45</span>823   148<span style="text-decoration: underline;">759</span>488</span></code></pre></div>
-<p>Create a metadata table, or a data map, that contains information about the variable names and labels, and where each row correspnds to one variable in the survey data file. We do this with the function <code><a href="../reference/metadata_create.html">metadata_create()</a></code>, which extracts the metadata from the survery data files, normalizes variable labels, identifies ranges of substantive responses and missing value codes.</p>
+<p>Create a metadata table, or a data map, that contains information about the variable names and labels, and where each row correspnds to one variable in the survey data file. We do this with the function <code><a href="../reference/metadata_survey_create.html">metadata_survey_create()</a></code>, which extracts the metadata from the survery data files, normalizes variable labels, identifies ranges of substantive responses and missing value codes. Its wrapper, <code><a href="../reference/metadata_create.html">metadata_create()</a></code>, loops the function on a list of surveys, or on a set of files containing surveys.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ab_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span> X <span class="op">=</span> <span class="va">ab_waves</span>, FUN <span class="op">=</span> <span class="va">metadata_create</span> <span class="op">)</span>
-<span class="va">ab_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">ab_metadata</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">ab_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metadata_create.html">metadata_create</a></span> <span class="op">(</span> survey_list <span class="op">=</span> <span class="va">ab_waves</span> <span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="working-with-metadata">Working with metadata<a class="anchor" aria-label="anchor" href="#working-with-metadata"></a>

@@ -52,18 +52,8 @@
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="active nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -93,7 +83,7 @@
                         <h4 data-toc-skip class="author">Yousef Ibrahim</h4>
                         <h4 data-toc-skip class="author">Ahmed Shaibani</h4>
             
-            <h4 data-toc-skip class="date">2021-12-07</h4>
+            <h4 data-toc-skip class="date">2021-12-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/rOpenGov/retroharmonize/blob/HEAD/vignettes/arabbarometer.Rmd" class="external-link"><code>vignettes/arabbarometer.Rmd</code></a></small>
       <div class="d-none name"><code>arabbarometer.Rmd</code></div>
@@ -178,7 +168,7 @@
 <p>In this step, we build a comprehensive metadata table that maps information about variable names and labels of the survey data. Each row in the table below refers to a different variable in the survey data file. This is accomplished using the <code><a href="../reference/metadata_create.html">metadata_create()</a></code> function, which collects metadata from survey data files, normalizes variable labels, and defines the valid and missing value ranges, codes, and labels.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># In the vignette this is pre-loaded.</span>
-<span class="va">arabbarometer_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metadata_create.html">metadata_surveys_create</a></span><span class="op">(</span><span class="va">arab_waves</span><span class="op">)</span></code></pre></div>
+<span class="va">arabbarometer_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metadata_create.html">metadata_create</a></span><span class="op">(</span><span class="va">arab_waves</span><span class="op">)</span></code></pre></div>
 <p>Let’s randomly review some metadata:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span>
@@ -733,7 +723,7 @@
 <span class="co">#&gt; [21] munsell_0.5.0     gtable_0.3.0      ragg_1.2.0        memoise_2.0.1    </span>
 <span class="co">#&gt; [25] evaluate_0.14     forcats_0.5.1     fastmap_1.1.0     fansi_0.5.0      </span>
 <span class="co">#&gt; [29] highr_0.9         scales_1.1.1      cachem_1.0.6      desc_1.4.0       </span>
-<span class="co">#&gt; [33] jsonlite_1.7.2    systemfonts_1.0.3 fs_1.5.1          textshaping_0.3.6</span>
+<span class="co">#&gt; [33] jsonlite_1.7.2    systemfonts_1.0.3 fs_1.5.2          textshaping_0.3.6</span>
 <span class="co">#&gt; [37] hms_1.1.1         png_0.1-7         digest_0.6.29     stringi_1.7.6    </span>
 <span class="co">#&gt; [41] rprojroot_2.0.2   grid_4.1.2        cli_3.1.0         here_1.0.1       </span>
 <span class="co">#&gt; [45] tools_4.1.2       magrittr_2.0.1    sass_0.4.0        tibble_3.1.6     </span>

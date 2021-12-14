@@ -21,18 +21,8 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/afrobarometer.html">Case Study: Working With Afrobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/arabbarometer.html">Case Study: Working With Arab Barometer Surveys</a>
-    <a class="dropdown-item" href="../articles/crosswalk.html">Working With A Crosswalk Table</a>
-    <a class="dropdown-item" href="../articles/eurobarometer.html">Case Study: Working with Eurobarometer surveys</a>
-    <a class="dropdown-item" href="../articles/harmonize_labels.html">Harmonize Value Labels</a>
-    <a class="dropdown-item" href="../articles/labelled_spss_survey.html">The labelled_spss_survey class</a>
-    <a class="dropdown-item" href="../articles/metadata.html">Working With Survey Metadata</a>
-    <a class="dropdown-item" href="../articles/survey_harmonization.html">Survey Harmonization</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -100,10 +90,12 @@ character types are not included, because they do not require coding.</p>
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other metadata functions: 
 <code><a href="crosswalk_table_create.html">crosswalk_table_create</a>()</code>,
-<code><a href="metadata_create.html">metadata_create</a>()</code></p>
+<code><a href="metadata_create.html">metadata_create</a>()</code>,
+<code><a href="metadata_survey_create.html">metadata_survey_create</a>()</code></p>
 <p>Other metadata functions: 
 <code><a href="crosswalk_table_create.html">crosswalk_table_create</a>()</code>,
-<code><a href="metadata_create.html">metadata_create</a>()</code></p></div>
+<code><a href="metadata_create.html">metadata_create</a>()</code>,
+<code><a href="metadata_survey_create.html">metadata_survey_create</a>()</code></p></div>
     </div>
 
     <div class="section level2">
@@ -137,24 +129,10 @@ character types are not included, because they do not require coding.</p>
 <span class="r-in"><span class="va">example_surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_surveys.html">read_surveys</a></span><span class="op">(</span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">examples_dir</span>, <span class="va">survey_list</span><span class="op">)</span>, </span>
 <span class="r-in">  save_to_rds <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>     </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in read_surveys(file.path(examples_dir, survey_list), save_to_rds = FALSE):</span> unused argument (save_to_rds = FALSE)</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">codebook_surveys_create</span> <span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,366 × 12</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    entry id     filename   var_name_orig var_label_orig    val_code_orig</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 1            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 10           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 11           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 12           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 13           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 14           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 2            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 3            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 4            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>     6 ZA5913 ZA5913.rds p1            date_of_interview 5            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1,356 more rows, and 6 more variables: val_label_orig &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   label_range &lt;chr&gt;, na_range &lt;named list&gt;, n_labels &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   n_valid_labels &lt;dbl&gt;, n_na_labels &lt;dbl&gt;</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in inherits(survey_list, "list"):</span> object 'example_surveys' not found</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

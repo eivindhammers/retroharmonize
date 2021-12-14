@@ -49,10 +49,13 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-2">
       <ul class="navbar-nav me-auto">
+<li class="active nav-item">
+  <a class="nav-link" href="../articles/retroharmonize.html">Get started</a>
+</li>
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="active nav-item">
+<li class="nav-item">
   <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
@@ -76,13 +79,13 @@
     
   </div>
 </nav><div class="container template-article">
-<script src="intro_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+<script src="retroharmonize_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <main id="main"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Getting Started</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/rOpenGov/retroharmonize/blob/HEAD/vignettes/intro.Rmd" class="external-link"><code>vignettes/intro.Rmd</code></a></small>
-      <div class="d-none name"><code>intro.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/rOpenGov/retroharmonize/blob/HEAD/vignettes/retroharmonize.Rmd" class="external-link"><code>vignettes/retroharmonize.Rmd</code></a></small>
+      <div class="d-none name"><code>retroharmonize.Rmd</code></div>
     </div>
 
     
@@ -172,9 +175,9 @@
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 8</span></span>
 <span class="co">#&gt;   id     filename    ncol  nrow object_size file_size accessed    last_modified </span>
 <span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ZA5913 ZA5913.rds    37    35      <span style="text-decoration: underline;">108</span>664      <span style="text-decoration: underline;">6</span>507 2021-12-14… 2021-12-14 10…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ZA6863 ZA6863.rds    48    50      <span style="text-decoration: underline;">143</span>200      <span style="text-decoration: underline;">8</span>738 2021-12-14… 2021-12-14 10…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ZA7576 ZA7576.rds    55    45      <span style="text-decoration: underline;">164</span>128      <span style="text-decoration: underline;">9</span>312 2021-12-14… 2021-12-14 10…</span></code></pre></div>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ZA5913 ZA5913.rds    37    35      <span style="text-decoration: underline;">108</span>664      <span style="text-decoration: underline;">6</span>507 2021-12-14… 2021-12-14 23…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ZA6863 ZA6863.rds    48    50      <span style="text-decoration: underline;">143</span>200      <span style="text-decoration: underline;">8</span>738 2021-12-14… 2021-12-14 23…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ZA7576 ZA7576.rds    55    45      <span style="text-decoration: underline;">164</span>128      <span style="text-decoration: underline;">9</span>312 2021-12-14… 2021-12-14 23…</span></code></pre></div>
 <p>This will easily fit into the memory, so let us explore a bit further.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/metadata_create.html">metadata_create</a></span><span class="op">(</span><span class="va">example_surveys</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>

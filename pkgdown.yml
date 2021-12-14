@@ -9,11 +9,11 @@ articles:
   documentation: documentation.html
   eurobarometer: eurobarometer.html
   harmonize_labels: harmonize_labels.html
-  intro: intro.html
   labelled_spss_survey: labelled_spss_survey.html
   metadata: metadata.html
+  retroharmonize: retroharmonize.html
   survey_harmonization: survey_harmonization.html
-last_built: 2021-12-14T10:00Z
+last_built: 2021-12-14T23:12Z
 urls:
   reference: https://ropengov.github.io/retroharmonize/reference
   article: https://ropengov.github.io/retroharmonize/articles

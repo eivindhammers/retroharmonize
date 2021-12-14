@@ -50,6 +50,9 @@
     <div id="navbar" class="collapse navbar-collapse ms-2">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
+  <a class="nav-link" href="../articles/retroharmonize.html">Get started</a>
+</li>
+<li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
 <li class="active nav-item">
@@ -398,31 +401,31 @@
 <span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span>
 <span class="co">#&gt;  0.0000  0.0000  1.0000  0.5556  1.0000  1.0000       4 </span>
 <span class="co">#&gt; Factor representation:</span>
-<span class="co">#&gt;     rowid                    hvar         w          </span>
-<span class="co">#&gt;  Length:13          not_trust  :4   Min.   :0.09101  </span>
-<span class="co">#&gt;  Class :character   trust      :5   1st Qu.:0.16922  </span>
-<span class="co">#&gt;  Mode  :character   do_not_know:2   Median :0.53266  </span>
-<span class="co">#&gt;                     inap       :2   Mean   :0.52571  </span>
-<span class="co">#&gt;                                     3rd Qu.:0.76226  </span>
-<span class="co">#&gt;                                     Max.   :0.99568</span></code></pre></div>
+<span class="co">#&gt;     rowid                    hvar         w         </span>
+<span class="co">#&gt;  Length:13          not_trust  :4   Min.   :0.1407  </span>
+<span class="co">#&gt;  Class :character   trust      :5   1st Qu.:0.3742  </span>
+<span class="co">#&gt;  Mode  :character   do_not_know:2   Median :0.6571  </span>
+<span class="co">#&gt;                     inap       :2   Mean   :0.5510  </span>
+<span class="co">#&gt;                                     3rd Qu.:0.7079  </span>
+<span class="co">#&gt;                                     Max.   :0.9381</span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 3</span></span>
-<span class="co">#&gt;    rowid                        hvar      w</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;retroh_dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> survey11     1<span style="color: #949494;"> [trust]</span>            0.150 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> survey12     0<span style="color: #949494;"> [not_trust]</span>        0.996 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> survey13     1<span style="color: #949494;"> [trust]</span>            0.762 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> survey14     1<span style="color: #949494;"> [trust]</span>            0.306 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> survey15     0<span style="color: #949494;"> [not_trust]</span>        0.757 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> survey16 <span style="text-decoration: underline;">99</span>997<span style="color: #BB0000;"> (NA)</span><span style="color: #949494;"> [do_not_know]</span> 0.633 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> survey17 <span style="text-decoration: underline;">99</span>999<span style="color: #BB0000;"> (NA)</span><span style="color: #949494;"> [inap]</span>        0.533 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> survey21     0<span style="color: #949494;"> [not_trust]</span>        0.948 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> survey22     0<span style="color: #949494;"> [not_trust]</span>        0.984 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> survey23 <span style="text-decoration: underline;">99</span>997<span style="color: #BB0000;"> (NA)</span><span style="color: #949494;"> [do_not_know]</span> 0.169 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> survey24 <span style="text-decoration: underline;">99</span>999<span style="color: #BB0000;"> (NA)</span><span style="color: #949494;"> [inap]</span>        0.091<span style="text-decoration: underline;">0</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> survey25     1<span style="color: #949494;"> [trust]</span>            0.353 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> survey26     1<span style="color: #949494;"> [trust]</span>            0.153</span></code></pre></div>
+<span class="co">#&gt;    rowid                        hvar     w</span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;retroh_dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> survey11     1<span style="color: #949494;"> [trust]</span>            0.172</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> survey12     0<span style="color: #949494;"> [not_trust]</span>        0.420</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> survey13     1<span style="color: #949494;"> [trust]</span>            0.677</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> survey14     1<span style="color: #949494;"> [trust]</span>            0.374</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> survey15     0<span style="color: #949494;"> [not_trust]</span>        0.708</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> survey16 <span style="text-decoration: underline;">99</span>997<span style="color: #BB0000;"> (NA)</span><span style="color: #949494;"> [do_not_know]</span> 0.402</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> survey17 <span style="text-decoration: underline;">99</span>999<span style="color: #BB0000;"> (NA)</span><span style="color: #949494;"> [inap]</span>        0.152</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> survey21     0<span style="color: #949494;"> [not_trust]</span>        0.659</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> survey22     0<span style="color: #949494;"> [not_trust]</span>        0.657</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> survey23 <span style="text-decoration: underline;">99</span>997<span style="color: #BB0000;"> (NA)</span><span style="color: #949494;"> [do_not_know]</span> 0.935</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> survey24 <span style="text-decoration: underline;">99</span>999<span style="color: #BB0000;"> (NA)</span><span style="color: #949494;"> [inap]</span>        0.141</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> survey25     1<span style="color: #949494;"> [trust]</span>            0.928</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> survey26     1<span style="color: #949494;"> [trust]</span>            0.938</span></code></pre></div>
 <p>While dplyr’s join functions may result in correct values, the metadata get lost. A new join method will be developed.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
